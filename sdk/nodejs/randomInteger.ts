@@ -12,32 +12,6 @@ import * as utilities from "./utilities";
  * unique names during the brief period where both the old and new resources
  * exist concurrently.
  * 
- * ## Example Usage
- * 
- * 
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as random from "@pulumi/random";
- * 
- * const priority = new random.RandomInteger("priority", {
- *     keepers: {
- *         // Generate a new integer each time we switch to a new listener ARN
- *         listener_arn: var_listener_arn,
- *     },
- *     max: 50000,
- *     min: 1,
- * });
- * const main = new aws.alb.ListenerRule("main", {
- *     actions: [{
- *         targetGroupArn: var_target_group_arn,
- *         type: "forward",
- *     }],
- *     listenerArn: var_listener_arn,
- *     priority: priority.result,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-random/blob/master/website/docs/r/integer.html.md.
  */

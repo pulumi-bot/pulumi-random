@@ -13,28 +13,6 @@ import * as utilities from "./utilities";
  * unique names during the brief period where both the old and new resources
  * exist concurrently.
  * 
- * ## Example Usage
- * 
- * 
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as random from "@pulumi/random";
- * 
- * const serverRandomPet = new random.RandomPet("server", {
- *     keepers: {
- *         // Generate a new pet name each time we switch to a new AMI id
- *         ami_id: var_ami_id,
- *     },
- * });
- * const serverInstance = new aws.ec2.Instance("server", {
- *     ami: serverRandomPet.keepers.apply(keepers => keepers.amiId),
- *     tags: {
- *         Name: pulumi.interpolate`web-server-${serverRandomPet.id}`,
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-random/blob/master/website/docs/r/pet.html.md.
  */

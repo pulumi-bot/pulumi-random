@@ -15,20 +15,6 @@ import * as utilities from "./utilities";
  * continue to exist. For unique ids please use random_id, for sensitive
  * random values please use random_password.
  * 
- * ## Example Usage
- * 
- * 
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as random from "@pulumi/random";
- * 
- * const randomRandomString = new random.RandomString("random", {
- *     length: 16,
- *     overrideSpecial: "/@£$",
- *     special: true,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-random/blob/master/website/docs/r/string.html.md.
  */

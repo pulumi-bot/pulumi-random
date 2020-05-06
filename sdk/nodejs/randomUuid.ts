@@ -12,20 +12,6 @@ import * as utilities from "./utilities";
  * for use with services needed a unique string identifier.
  * 
  * 
- * ## Example Usage
- * 
- * 
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- * 
- * const testRandomUuid = new random.RandomUuid("test", {});
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "Central US",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-random/blob/master/website/docs/r/uuid.html.md.
  */

@@ -8,30 +8,6 @@ import * as utilities from "./utilities";
  * The resource `random..RandomShuffle` generates a random permutation of a list
  * of strings given as an argument.
  * 
- * ## Example Usage
- * 
- * 
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as random from "@pulumi/random";
- * 
- * const az = new random.RandomShuffle("az", {
- *     inputs: [
- *         "us-west-1a",
- *         "us-west-1c",
- *         "us-west-1d",
- *         "us-west-1e",
- *     ],
- *     resultCount: 2,
- * });
- * const example = new aws.elb.LoadBalancer("example", {
- *     // Place the ELB in any two of the given availability zones, selected
- *     // at random.
- *     availabilityZones: az.results,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-random/blob/master/website/docs/r/shuffle.html.md.
  */
