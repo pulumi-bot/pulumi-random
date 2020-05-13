@@ -12,6 +12,9 @@ import (
 
 // The resource `.RandomShuffle` generates a random permutation of a list
 // of strings given as an argument.
+//
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-random/blob/master/website/docs/r/shuffle.html.md.
 type RandomShuffle struct {
 	pulumi.CustomResourceState
 

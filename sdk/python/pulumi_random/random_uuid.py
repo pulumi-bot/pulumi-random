@@ -42,6 +42,7 @@ class RandomUuid(pulumi.CustomResource):
         test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="Central US")
         ```
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-random/blob/master/website/docs/r/uuid.html.md.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

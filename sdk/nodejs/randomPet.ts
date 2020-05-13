@@ -7,21 +7,21 @@ import * as utilities from "./utilities";
 /**
  * The resource `random..RandomPet` generates random pet names that are intended to be
  * used as unique identifiers for other resources.
- * 
+ *
  * This resource can be used in conjunction with resources that have
  * the `createBeforeDestroy` lifecycle flag set, to avoid conflicts with
  * unique names during the brief period where both the old and new resources
  * exist concurrently.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as random from "@pulumi/random";
- * 
+ *
  * const serverRandomPet = new random.RandomPet("server", {
  *     keepers: {
  *         // Generate a new pet name each time we switch to a new AMI id
