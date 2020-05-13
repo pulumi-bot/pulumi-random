@@ -20,6 +20,9 @@ namespace Pulumi.Random
     /// state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
     /// This resource *does* use a cryptographic random number generator.
+    /// 
+    /// 
+    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-random/blob/master/website/docs/r/password.html.md.
     /// </summary>
     public partial class RandomPassword : Pulumi.CustomResource
     {

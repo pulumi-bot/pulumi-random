@@ -58,6 +58,7 @@ class RandomShuffle(pulumi.CustomResource):
         example = aws.elb.LoadBalancer("example", availability_zones=az.results)
         ```
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-random/blob/master/website/docs/r/shuffle.html.md.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
