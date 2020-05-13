@@ -7,16 +7,16 @@ import * as utilities from "./utilities";
 /**
  * The resource `random..RandomShuffle` generates a random permutation of a list
  * of strings given as an argument.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as random from "@pulumi/random";
- * 
+ *
  * const az = new random.RandomShuffle("az", {
  *     inputs: [
  *         "us-west-1a",
