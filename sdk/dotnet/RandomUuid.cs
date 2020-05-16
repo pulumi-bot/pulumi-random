@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Random
 {
     /// <summary>
-    /// The resource `random..RandomUuid` generates random uuid string that is intended to be
+    /// The resource `random.RandomUuid` generates random uuid string that is intended to be
     /// used as unique identifiers for other resources.
     /// 
     /// This resource uses the `hashicorp/go-uuid` to generate a UUID-formatted string
