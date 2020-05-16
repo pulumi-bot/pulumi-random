@@ -30,7 +30,7 @@ class RandomPet(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, keepers=None, length=None, prefix=None, separator=None, __props__=None, __name__=None, __opts__=None):
         """
-        The resource `.RandomPet` generates random pet names that are intended to be
+        The resource `RandomPet` generates random pet names that are intended to be
         used as unique identifiers for other resources.
 
         This resource can be used in conjunction with resources that have

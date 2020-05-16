@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Random
 {
     /// <summary>
-    /// The resource `random..RandomInteger` generates random values from a given range, described by the `min` and `max` attributes of a given resource.
+    /// The resource `random.RandomInteger` generates random values from a given range, described by the `min` and `max` attributes of a given resource.
     /// 
     /// This resource can be used in conjunction with resources that have
     /// the `create_before_destroy` lifecycle flag set, to avoid conflicts with
