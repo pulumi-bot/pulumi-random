@@ -9,7 +9,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The resource `.RandomPet` generates random pet names that are intended to be
+// The resource `RandomPet` generates random pet names that are intended to be
 // used as unique identifiers for other resources.
 //
 // This resource can be used in conjunction with resources that have

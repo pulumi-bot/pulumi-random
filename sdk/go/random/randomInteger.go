@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The resource `.RandomInteger` generates random values from a given range, described by the `min` and `max` attributes of a given resource.
+// The resource `RandomInteger` generates random values from a given range, described by the `min` and `max` attributes of a given resource.
 //
 // This resource can be used in conjunction with resources that have
 // the `createBeforeDestroy` lifecycle flag set, to avoid conflicts with

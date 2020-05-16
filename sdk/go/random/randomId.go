@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The resource `.RandomId` generates random numbers that are intended to be
+// The resource `RandomId` generates random numbers that are intended to be
 // used as unique identifiers for other resources.
 //
 // This resource *does* use a cryptographic random number generator in order
