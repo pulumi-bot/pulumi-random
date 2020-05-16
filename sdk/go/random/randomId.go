@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The resource `.RandomId` generates random numbers that are intended to be
+// The resource `RandomId` generates random numbers that are intended to be
 // used as unique identifiers for other resources.
 //
 // This resource *does* use a cryptographic random number generator in order
@@ -25,6 +25,7 @@ import (
 type RandomId struct {
 	pulumi.CustomResourceState
 
+	// Deprecated: Use [b64Url](%23%2FPROPERTY_CONTAINER%2Fb64Url) for old behavior, or [b64Std](%23%2FPROPERTY_CONTAINER%2Fb64Std) for standard base64 encoding
 	B64 pulumi.StringOutput `pulumi:"b64"`
 	// The generated id presented in base64 without additional transformations.
 	B64Std pulumi.StringOutput `pulumi:"b64Std"`
@@ -78,6 +79,7 @@ func GetRandomId(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RandomId resources.
 type randomIdState struct {
+	// Deprecated: Use [b64Url](%23%2FPROPERTY_CONTAINER%2Fb64Url) for old behavior, or [b64Std](%23%2FPROPERTY_CONTAINER%2Fb64Std) for standard base64 encoding
 	B64 *string `pulumi:"b64"`
 	// The generated id presented in base64 without additional transformations.
 	B64Std *string `pulumi:"b64Std"`
@@ -101,6 +103,7 @@ type randomIdState struct {
 }
 
 type RandomIdState struct {
+	// Deprecated: Use [b64Url](%23%2FPROPERTY_CONTAINER%2Fb64Url) for old behavior, or [b64Std](%23%2FPROPERTY_CONTAINER%2Fb64Std) for standard base64 encoding
 	B64 pulumi.StringPtrInput
 	// The generated id presented in base64 without additional transformations.
 	B64Std pulumi.StringPtrInput
