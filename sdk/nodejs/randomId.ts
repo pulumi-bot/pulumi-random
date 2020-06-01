@@ -69,6 +69,9 @@ export class RandomId extends pulumi.CustomResource {
         return obj['__pulumiType'] === RandomId.__pulumiType;
     }
 
+    /**
+     * @deprecated Use b64_url for old behavior, or b64_std for standard base64 encoding
+     */
     public /*out*/ readonly b64!: pulumi.Output<string>;
     /**
      * The generated id presented in base64 without additional transformations.
@@ -153,6 +156,9 @@ export class RandomId extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RandomId resources.
  */
 export interface RandomIdState {
+    /**
+     * @deprecated Use b64_url for old behavior, or b64_std for standard base64 encoding
+     */
     readonly b64?: pulumi.Input<string>;
     /**
      * The generated id presented in base64 without additional transformations.
