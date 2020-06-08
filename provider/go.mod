@@ -11,3 +11,5 @@ require (
 )
 
 replace github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.4.3+incompatible
+
+replace github.com/pulumi/tf2pulumi => ../../tf2pulumi
