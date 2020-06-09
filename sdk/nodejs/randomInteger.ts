@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * The resource `random..RandomInteger` generates random values from a given range, described by the `min` and `max` attributes of a given resource.
+ * The resource `random.RandomInteger` generates random values from a given range, described by the `min` and `max` attributes of a given resource.
  *
  * This resource can be used in conjunction with resources that have
  * the `createBeforeDestroy` lifecycle flag set, to avoid conflicts with
