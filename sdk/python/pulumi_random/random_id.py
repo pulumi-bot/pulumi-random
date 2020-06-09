@@ -46,7 +46,7 @@ class RandomId(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, byte_length=None, keepers=None, prefix=None, __props__=None, __name__=None, __opts__=None):
         """
-        The resource `.RandomId` generates random numbers that are intended to be
+        The resource `RandomId` generates random numbers that are intended to be
         used as unique identifiers for other resources.
 
         This resource *does* use a cryptographic random number generator in order
