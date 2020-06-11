@@ -35,7 +35,7 @@ class RandomShuffle(pulumi.CustomResource):
     seed: pulumi.Output[str]
     def __init__(__self__, resource_name, opts=None, inputs=None, keepers=None, result_count=None, seed=None, __props__=None, __name__=None, __opts__=None):
         """
-        The resource `.RandomShuffle` generates a random permutation of a list
+        The resource `RandomShuffle` generates a random permutation of a list
         of strings given as an argument.
 
         ## Example Usage
@@ -57,7 +57,6 @@ class RandomShuffle(pulumi.CustomResource):
             result_count=2)
         example = aws.elb.LoadBalancer("example", availability_zones=az.results)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
