@@ -34,7 +34,7 @@ class RandomInteger(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, keepers=None, max=None, min=None, seed=None, __props__=None, __name__=None, __opts__=None):
         """
-        The resource `.RandomInteger` generates random values from a given range, described by the `min` and `max` attributes of a given resource.
+        The resource `RandomInteger` generates random values from a given range, described by the `min` and `max` attributes of a given resource.
 
         This resource can be used in conjunction with resources that have
         the `create_before_destroy` lifecycle flag set, to avoid conflicts with
@@ -64,7 +64,6 @@ class RandomInteger(pulumi.CustomResource):
             listener_arn=var["listener_arn"],
             priority=priority.result)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
