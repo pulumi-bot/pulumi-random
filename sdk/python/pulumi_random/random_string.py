@@ -73,7 +73,7 @@ class RandomString(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, keepers=None, length=None, lower=None, min_lower=None, min_numeric=None, min_special=None, min_upper=None, number=None, override_special=None, special=None, upper=None, __props__=None, __name__=None, __opts__=None):
         """
-        The resource `.RandomString` generates a random permutation of alphanumeric
+        The resource `RandomString` generates a random permutation of alphanumeric
         characters and optionally special characters.
 
         This resource *does* use a cryptographic random number generator.
@@ -93,10 +93,9 @@ class RandomString(pulumi.CustomResource):
 
         random = random.RandomString("random",
             length=16,
-            override_special="/@£$$",
+            override_special="/@£$",
             special=True)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
