@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * The resource `random..RandomPet` generates random pet names that are intended to be
+ * The resource `random.RandomPet` generates random pet names that are intended to be
  * used as unique identifiers for other resources.
  *
  * This resource can be used in conjunction with resources that have
