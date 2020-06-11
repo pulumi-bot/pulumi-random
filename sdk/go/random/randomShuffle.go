@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The resource `.RandomShuffle` generates a random permutation of a list
+// The resource `RandomShuffle` generates a random permutation of a list
 // of strings given as an argument.
 type RandomShuffle struct {
 	pulumi.CustomResourceState

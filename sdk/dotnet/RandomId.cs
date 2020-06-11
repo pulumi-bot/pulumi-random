@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Random
 {
     /// <summary>
-    /// The resource `random..RandomId` generates random numbers that are intended to be
+    /// The resource `random.RandomId` generates random numbers that are intended to be
     /// used as unique identifiers for other resources.
     /// 
     /// This resource *does* use a cryptographic random number generator in order
