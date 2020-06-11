@@ -26,7 +26,7 @@ class RandomPassword(pulumi.CustomResource):
         """
         > **Note:** Requires random provider version >= 2.2.0
 
-        Identical to .RandomString with the exception that the
+        Identical to RandomString with the exception that the
         result is treated as sensitive and, thus, _not_ displayed in console output.
 
         > **Note:** All attributes including the generated password will be stored in
@@ -55,7 +55,6 @@ class RandomPassword(pulumi.CustomResource):
             username="someone",
             password=random_string["password"]["result"])
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
