@@ -22,7 +22,7 @@ class RandomUuid(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, keepers=None, __props__=None, __name__=None, __opts__=None):
         """
-        The resource `.RandomUuid` generates random uuid string that is intended to be
+        The resource `RandomUuid` generates random uuid string that is intended to be
         used as unique identifiers for other resources.
 
         This resource uses the `hashicorp/go-uuid` to generate a UUID-formatted string
@@ -41,7 +41,6 @@ class RandomUuid(pulumi.CustomResource):
         test_random_uuid = random.RandomUuid("testRandomUuid")
         test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="Central US")
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
