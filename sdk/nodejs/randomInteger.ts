@@ -11,10 +11,10 @@ import * as utilities from "./utilities";
  * the `createBeforeDestroy` lifecycle flag set, to avoid conflicts with
  * unique names during the brief period where both the old and new resources
  * exist concurrently.
- *
  * ## Example Usage
  *
- *
+ * The following example shows how to generate a random priority between 1 and 50000 for
+ * a `awsAlbListenerRule` resource:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -38,6 +38,8 @@ import * as utilities from "./utilities";
  *     priority: priority.result,
  * });
  * ```
+ *
+ * The result of the above will set a random priority.
  */
 export class RandomInteger extends pulumi.CustomResource {
     /**

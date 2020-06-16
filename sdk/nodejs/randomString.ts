@@ -14,10 +14,7 @@ import * as utilities from "./utilities";
  * used it in a password. For backwards compatibility it will
  * continue to exist. For unique ids please use random_id, for sensitive
  * random values please use random_password.
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

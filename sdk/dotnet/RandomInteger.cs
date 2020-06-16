@@ -16,10 +16,10 @@ namespace Pulumi.Random
     /// the `create_before_destroy` lifecycle flag set, to avoid conflicts with
     /// unique names during the brief period where both the old and new resources
     /// exist concurrently.
-    /// 
     /// ## Example Usage
     /// 
-    /// 
+    /// The following example shows how to generate a random priority between 1 and 50000 for
+    /// a `aws_alb_listener_rule` resource:
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -56,6 +56,8 @@ namespace Pulumi.Random
     /// 
     /// }
     /// ```
+    /// 
+    /// The result of the above will set a random priority.
     /// </summary>
     public partial class RandomInteger : Pulumi.CustomResource
     {

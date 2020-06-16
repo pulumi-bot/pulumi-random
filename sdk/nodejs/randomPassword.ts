@@ -15,10 +15,7 @@ import * as utilities from "./utilities";
  * state](https://www.terraform.io/docs/state/sensitive-data.html).
  *
  * This resource *does* use a cryptographic random number generator.
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
