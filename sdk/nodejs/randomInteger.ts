@@ -12,9 +12,12 @@ import * as utilities from "./utilities";
  * unique names during the brief period where both the old and new resources
  * exist concurrently.
  *
+ * {{% examples %}}
  * ## Example Usage
+ * {{% example %}}
  *
- *
+ * The following example shows how to generate a random priority between 1 and 50000 for
+ * a `awsAlbListenerRule` resource:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -38,6 +41,10 @@ import * as utilities from "./utilities";
  *     priority: priority.result,
  * });
  * ```
+ *
+ * The result of the above will set a random priority.
+ * {{% /example %}}
+ * {{% /examples %}}
  */
 export class RandomInteger extends pulumi.CustomResource {
     /**

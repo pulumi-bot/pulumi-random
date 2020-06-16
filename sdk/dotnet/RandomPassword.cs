@@ -21,9 +21,9 @@ namespace Pulumi.Random
     /// 
     /// This resource *does* use a cryptographic random number generator.
     /// 
+    /// {{% examples %}}
     /// ## Example Usage
-    /// 
-    /// 
+    /// {{% example %}}
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -52,6 +52,8 @@ namespace Pulumi.Random
     /// 
     /// }
     /// ```
+    /// {{% /example %}}
+    /// {{% /examples %}}
     /// </summary>
     public partial class RandomPassword : Pulumi.CustomResource
     {

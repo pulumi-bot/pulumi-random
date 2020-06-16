@@ -17,9 +17,12 @@ namespace Pulumi.Random
     /// unique names during the brief period where both the old and new resources
     /// exist concurrently.
     /// 
+    /// {{% examples %}}
     /// ## Example Usage
+    /// {{% example %}}
     /// 
-    /// 
+    /// The following example shows how to generate a random priority between 1 and 50000 for
+    /// a `aws_alb_listener_rule` resource:
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -56,6 +59,10 @@ namespace Pulumi.Random
     /// 
     /// }
     /// ```
+    /// 
+    /// The result of the above will set a random priority.
+    /// {{% /example %}}
+    /// {{% /examples %}}
     /// </summary>
     public partial class RandomInteger : Pulumi.CustomResource
     {

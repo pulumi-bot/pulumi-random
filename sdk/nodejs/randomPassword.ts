@@ -16,9 +16,9 @@ import * as utilities from "./utilities";
  *
  * This resource *does* use a cryptographic random number generator.
  *
+ * {{% examples %}}
  * ## Example Usage
- *
- *
+ * {{% example %}}
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -38,6 +38,8 @@ import * as utilities from "./utilities";
  *     password: random_string.password.result,
  * });
  * ```
+ * {{% /example %}}
+ * {{% /examples %}}
  */
 export class RandomPassword extends pulumi.CustomResource {
     /**

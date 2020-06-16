@@ -20,9 +20,9 @@ namespace Pulumi.Random
     /// continue to exist. For unique ids please use random_id, for sensitive
     /// random values please use random_password.
     /// 
+    /// {{% examples %}}
     /// ## Example Usage
-    /// 
-    /// 
+    /// {{% example %}}
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -42,6 +42,8 @@ namespace Pulumi.Random
     /// 
     /// }
     /// ```
+    /// {{% /example %}}
+    /// {{% /examples %}}
     /// </summary>
     public partial class RandomString : Pulumi.CustomResource
     {

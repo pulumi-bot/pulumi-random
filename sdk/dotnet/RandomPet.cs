@@ -18,9 +18,12 @@ namespace Pulumi.Random
     /// unique names during the brief period where both the old and new resources
     /// exist concurrently.
     /// 
+    /// {{% examples %}}
     /// ## Example Usage
+    /// {{% example %}}
     /// 
-    /// 
+    /// The following example shows how to generate a unique pet name for an AWS EC2
+    /// instance that changes each time a new AMI id is selected.
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -50,6 +53,11 @@ namespace Pulumi.Random
     /// 
     /// }
     /// ```
+    /// 
+    /// The result of the above will set the Name of the AWS Instance to
+    /// `web-server-simple-snake`.
+    /// {{% /example %}}
+    /// {{% /examples %}}
     /// </summary>
     public partial class RandomPet : Pulumi.CustomResource
     {

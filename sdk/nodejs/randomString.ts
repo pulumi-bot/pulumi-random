@@ -15,9 +15,9 @@ import * as utilities from "./utilities";
  * continue to exist. For unique ids please use random_id, for sensitive
  * random values please use random_password.
  *
+ * {{% examples %}}
  * ## Example Usage
- *
- *
+ * {{% example %}}
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -29,6 +29,8 @@ import * as utilities from "./utilities";
  *     special: true,
  * });
  * ```
+ * {{% /example %}}
+ * {{% /examples %}}
  */
 export class RandomString extends pulumi.CustomResource {
     /**

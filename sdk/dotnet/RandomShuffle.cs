@@ -13,9 +13,9 @@ namespace Pulumi.Random
     /// The resource `random..RandomShuffle` generates a random permutation of a list
     /// of strings given as an argument.
     /// 
+    /// {{% examples %}}
     /// ## Example Usage
-    /// 
-    /// 
+    /// {{% example %}}
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -45,6 +45,8 @@ namespace Pulumi.Random
     /// 
     /// }
     /// ```
+    /// {{% /example %}}
+    /// {{% /examples %}}
     /// </summary>
     public partial class RandomShuffle : Pulumi.CustomResource
     {

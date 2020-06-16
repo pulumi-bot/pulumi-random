@@ -18,9 +18,12 @@ import * as utilities from "./utilities";
  * unique names during the brief period where both the old and new resources
  * exist concurrently.
  *
+ * {{% examples %}}
  * ## Example Usage
+ * {{% example %}}
  *
- *
+ * The following example shows how to generate a unique name for an AWS EC2
+ * instance that changes each time a new AMI id is selected.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -41,6 +44,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * {{% /example %}}
+ * {{% /examples %}}
  */
 export class RandomId extends pulumi.CustomResource {
     /**

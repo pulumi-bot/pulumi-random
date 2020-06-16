@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
+
 class RandomShuffle(pulumi.CustomResource):
     inputs: pulumi.Output[list]
     """
@@ -38,9 +39,9 @@ class RandomShuffle(pulumi.CustomResource):
         The resource `.RandomShuffle` generates a random permutation of a list
         of strings given as an argument.
 
+        {{% examples %}}
         ## Example Usage
-
-
+        {{% example %}}
 
         ```python
         import pulumi
@@ -57,7 +58,8 @@ class RandomShuffle(pulumi.CustomResource):
             result_count=2)
         example = aws.elb.LoadBalancer("example", availability_zones=az.results)
         ```
-
+        {{% /example %}}
+        {{% /examples %}}
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,9 +133,9 @@ class RandomShuffle(pulumi.CustomResource):
         __props__["results"] = results
         __props__["seed"] = seed
         return RandomShuffle(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

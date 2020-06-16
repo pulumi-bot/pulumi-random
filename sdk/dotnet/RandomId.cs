@@ -23,9 +23,12 @@ namespace Pulumi.Random
     /// unique names during the brief period where both the old and new resources
     /// exist concurrently.
     /// 
+    /// {{% examples %}}
     /// ## Example Usage
+    /// {{% example %}}
     /// 
-    /// 
+    /// The following example shows how to generate a unique name for an AWS EC2
+    /// instance that changes each time a new AMI id is selected.
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -56,6 +59,8 @@ namespace Pulumi.Random
     /// 
     /// }
     /// ```
+    /// {{% /example %}}
+    /// {{% /examples %}}
     /// </summary>
     public partial class RandomId : Pulumi.CustomResource
     {
