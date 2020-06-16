@@ -22,6 +22,9 @@ import (
 // the `createBeforeDestroy` lifecycle flag set to avoid conflicts with
 // unique names during the brief period where both the old and new resources
 // exist concurrently.
+//
+// {{% examples %}}
+// {{% /examples %}}
 type RandomId struct {
 	pulumi.CustomResourceState
 

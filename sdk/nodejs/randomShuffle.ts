@@ -7,10 +7,7 @@ import * as utilities from "./utilities";
 /**
  * The resource `random..RandomShuffle` generates a random permutation of a list
  * of strings given as an argument.
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -32,6 +29,9 @@ import * as utilities from "./utilities";
  *     availabilityZones: az.results,
  * });
  * ```
+ *
+ * {{% examples %}}
+ * {{% /examples %}}
  */
 export class RandomShuffle extends pulumi.CustomResource {
     /**

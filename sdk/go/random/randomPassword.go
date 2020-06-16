@@ -20,6 +20,9 @@ import (
 // state](https://www.terraform.io/docs/state/sensitive-data.html).
 //
 // This resource *does* use a cryptographic random number generator.
+//
+// {{% examples %}}
+// {{% /examples %}}
 type RandomPassword struct {
 	pulumi.CustomResourceState
 

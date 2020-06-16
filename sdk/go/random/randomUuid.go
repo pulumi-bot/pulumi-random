@@ -14,6 +14,9 @@ import (
 //
 // This resource uses the `hashicorp/go-uuid` to generate a UUID-formatted string
 // for use with services needed a unique string identifier.
+//
+// {{% examples %}}
+// {{% /examples %}}
 type RandomUuid struct {
 	pulumi.CustomResourceState
 

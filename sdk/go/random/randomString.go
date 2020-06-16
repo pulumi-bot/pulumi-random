@@ -19,6 +19,9 @@ import (
 // used it in a password. For backwards compatibility it will
 // continue to exist. For unique ids please use random_id, for sensitive
 // random values please use random_password.
+//
+// {{% examples %}}
+// {{% /examples %}}
 type RandomString struct {
 	pulumi.CustomResourceState
 

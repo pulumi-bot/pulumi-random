@@ -17,10 +17,10 @@ namespace Pulumi.Random
     /// the `create_before_destroy` lifecycle flag set, to avoid conflicts with
     /// unique names during the brief period where both the old and new resources
     /// exist concurrently.
-    /// 
     /// ## Example Usage
     /// 
-    /// 
+    /// The following example shows how to generate a unique pet name for an AWS EC2
+    /// instance that changes each time a new AMI id is selected.
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -50,6 +50,12 @@ namespace Pulumi.Random
     /// 
     /// }
     /// ```
+    /// 
+    /// The result of the above will set the Name of the AWS Instance to
+    /// `web-server-simple-snake`.
+    /// 
+    /// {{% examples %}}
+    /// {{% /examples %}}
     /// </summary>
     public partial class RandomPet : Pulumi.CustomResource
     {

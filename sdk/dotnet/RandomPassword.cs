@@ -20,10 +20,7 @@ namespace Pulumi.Random
     /// state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
     /// This resource *does* use a cryptographic random number generator.
-    /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -52,6 +49,9 @@ namespace Pulumi.Random
     /// 
     /// }
     /// ```
+    /// 
+    /// {{% examples %}}
+    /// {{% /examples %}}
     /// </summary>
     public partial class RandomPassword : Pulumi.CustomResource
     {

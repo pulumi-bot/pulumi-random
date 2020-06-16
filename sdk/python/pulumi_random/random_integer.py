@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
+
 class RandomInteger(pulumi.CustomResource):
     keepers: pulumi.Output[dict]
     """
@@ -40,10 +41,10 @@ class RandomInteger(pulumi.CustomResource):
         the `create_before_destroy` lifecycle flag set, to avoid conflicts with
         unique names during the brief period where both the old and new resources
         exist concurrently.
-
         ## Example Usage
 
-
+        The following example shows how to generate a random priority between 1 and 50000 for
+        a `aws_alb_listener_rule` resource:
 
         ```python
         import pulumi
@@ -65,6 +66,10 @@ class RandomInteger(pulumi.CustomResource):
             priority=priority.result)
         ```
 
+        The result of the above will set a random priority.
+
+        {{% examples %}}
+        {{% /examples %}}
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,9 +139,9 @@ class RandomInteger(pulumi.CustomResource):
         __props__["result"] = result
         __props__["seed"] = seed
         return RandomInteger(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-
