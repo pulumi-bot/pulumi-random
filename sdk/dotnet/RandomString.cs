@@ -22,8 +22,6 @@ namespace Pulumi.Random
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Random = Pulumi.Random;
