@@ -15,8 +15,6 @@ namespace Pulumi.Random
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
