@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
+
 class RandomString(pulumi.CustomResource):
     keepers: pulumi.Output[dict]
     """
@@ -85,8 +86,6 @@ class RandomString(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_random as random
@@ -96,7 +95,6 @@ class RandomString(pulumi.CustomResource):
             override_special="/@£$$",
             special=True)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,9 +212,9 @@ class RandomString(pulumi.CustomResource):
         __props__["special"] = special
         __props__["upper"] = upper
         return RandomString(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-
