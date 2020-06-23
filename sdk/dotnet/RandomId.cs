@@ -25,7 +25,8 @@ namespace Pulumi.Random
     /// 
     /// ## Example Usage
     /// 
-    /// 
+    /// The following example shows how to generate a unique name for an AWS EC2
+    /// instance that changes each time a new AMI id is selected.
     /// 
     /// ```csharp
     /// using Pulumi;
