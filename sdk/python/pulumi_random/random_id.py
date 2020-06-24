@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
+
 class RandomId(pulumi.CustomResource):
     b64: pulumi.Output[str]
     b64_std: pulumi.Output[str]
@@ -61,7 +62,8 @@ class RandomId(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        The following example shows how to generate a unique name for an AWS EC2
+        instance that changes each time a new AMI id is selected.
 
         ```python
         import pulumi
@@ -79,7 +81,6 @@ class RandomId(pulumi.CustomResource):
                 "Name": server_random_id.hex.apply(lambda hex: f"web-server {hex}"),
             })
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,9 +161,9 @@ class RandomId(pulumi.CustomResource):
         __props__["keepers"] = keepers
         __props__["prefix"] = prefix
         return RandomId(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-
