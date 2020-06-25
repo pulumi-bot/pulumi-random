@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The resource `.RandomId` generates random numbers that are intended to be
+// The resource `RandomId` generates random numbers that are intended to be
 // used as unique identifiers for other resources.
 //
 // This resource *does* use a cryptographic random number generator in order
@@ -22,6 +22,8 @@ import (
 // the `createBeforeDestroy` lifecycle flag set to avoid conflicts with
 // unique names during the brief period where both the old and new resources
 // exist concurrently.
+//
+// ## Example Usage
 type RandomId struct {
 	pulumi.CustomResourceState
 
