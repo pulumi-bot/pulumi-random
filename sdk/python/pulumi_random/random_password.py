@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
+
 class RandomPassword(pulumi.CustomResource):
     keepers: pulumi.Output[dict]
     length: pulumi.Output[float]
@@ -37,8 +38,6 @@ class RandomPassword(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -55,7 +54,6 @@ class RandomPassword(pulumi.CustomResource):
             username="someone",
             password=random_string["password"]["result"])
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,9 +122,9 @@ class RandomPassword(pulumi.CustomResource):
         __props__["special"] = special
         __props__["upper"] = upper
         return RandomPassword(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-
