@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
+
 class RandomPet(pulumi.CustomResource):
     keepers: pulumi.Output[dict]
     """
@@ -30,7 +31,7 @@ class RandomPet(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, keepers=None, length=None, prefix=None, separator=None, __props__=None, __name__=None, __opts__=None):
         """
-        The resource `.RandomPet` generates random pet names that are intended to be
+        The resource `RandomPet` generates random pet names that are intended to be
         used as unique identifiers for other resources.
 
         This resource can be used in conjunction with resources that have
@@ -40,7 +41,8 @@ class RandomPet(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        The following example shows how to generate a unique pet name for an AWS EC2
+        instance that changes each time a new AMI id is selected.
 
         ```python
         import pulumi
@@ -57,6 +59,8 @@ class RandomPet(pulumi.CustomResource):
             })
         ```
 
+        The result of the above will set the Name of the AWS Instance to
+        `web-server-simple-snake`.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +123,9 @@ class RandomPet(pulumi.CustomResource):
         __props__["prefix"] = prefix
         __props__["separator"] = separator
         return RandomPet(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-
