@@ -15,7 +15,8 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
+ * The following example shows how to generate a unique pet name for an AWS EC2
+ * instance that changes each time a new AMI id is selected.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -35,6 +36,9 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ *
+ * The result of the above will set the Name of the AWS Instance to
+ * `web-server-simple-snake`.
  */
 export class RandomPet extends pulumi.CustomResource {
     /**
