@@ -35,7 +35,7 @@ namespace Pulumi.Random
     ///         var random = new Random.RandomString("random", new Random.RandomStringArgs
     ///         {
     ///             Length = 16,
-    ///             OverrideSpecial = "/@£$$",
+    ///             OverrideSpecial = "/@£$",
     ///             Special = true,
     ///         });
     ///     }
