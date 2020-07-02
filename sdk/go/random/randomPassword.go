@@ -46,7 +46,7 @@ import (
 // 			AllocatedStorage: pulumi.Int(64),
 // 			Engine:           pulumi.String("mysql"),
 // 			Username:         pulumi.String("someone"),
-// 			Password:         pulumi.String(random_string.Password.Result),
+// 			Password:         pulumi.Any(random_string.Password.Result),
 // 		})
 // 		if err != nil {
 // 			return err
