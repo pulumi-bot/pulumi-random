@@ -5,24 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Optional, Tuple, Union
+from . import _utilities, _tables
 
 
 class RandomPassword(pulumi.CustomResource):
-    keepers: pulumi.Output[dict]
-    length: pulumi.Output[float]
-    lower: pulumi.Output[bool]
-    min_lower: pulumi.Output[float]
-    min_numeric: pulumi.Output[float]
-    min_special: pulumi.Output[float]
-    min_upper: pulumi.Output[float]
-    number: pulumi.Output[bool]
-    override_special: pulumi.Output[str]
-    result: pulumi.Output[str]
-    special: pulumi.Output[bool]
-    upper: pulumi.Output[bool]
-    def __init__(__self__, resource_name, opts=None, keepers=None, length=None, lower=None, min_lower=None, min_numeric=None, min_special=None, min_upper=None, number=None, override_special=None, special=None, upper=None, __props__=None, __name__=None, __opts__=None):
+    keepers: pulumi.Output[Optional[Dict[str, Any]]] = pulumi.output_property("keepers")
+    length: pulumi.Output[float] = pulumi.output_property("length")
+    lower: pulumi.Output[Optional[bool]] = pulumi.output_property("lower")
+    min_lower: pulumi.Output[Optional[float]] = pulumi.output_property("minLower")
+    min_numeric: pulumi.Output[Optional[float]] = pulumi.output_property("minNumeric")
+    min_special: pulumi.Output[Optional[float]] = pulumi.output_property("minSpecial")
+    min_upper: pulumi.Output[Optional[float]] = pulumi.output_property("minUpper")
+    number: pulumi.Output[Optional[bool]] = pulumi.output_property("number")
+    override_special: pulumi.Output[Optional[str]] = pulumi.output_property("overrideSpecial")
+    result: pulumi.Output[str] = pulumi.output_property("result")
+    special: pulumi.Output[Optional[bool]] = pulumi.output_property("special")
+    upper: pulumi.Output[Optional[bool]] = pulumi.output_property("upper")
+    # pylint: disable=no-self-argument
+    def __init__(__self__, resource_name, opts: Optional[pulumi.ResourceOptions] = None, keepers=None, length=None, lower=None, min_lower=None, min_numeric=None, min_special=None, min_upper=None, number=None, override_special=None, special=None, upper=None, __props__=None, __name__=None, __opts__=None) -> None:
         """
         Identical to the `RandomString` resource with the exception that the
         result is treated as sensitive and, thus, _not_ displayed in console output.
@@ -65,7 +66,7 @@ class RandomPassword(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -120,7 +121,8 @@ class RandomPassword(pulumi.CustomResource):
         return RandomPassword(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
