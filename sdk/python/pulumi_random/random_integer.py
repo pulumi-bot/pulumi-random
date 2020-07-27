@@ -5,33 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['RandomInteger']
 
 
 class RandomInteger(pulumi.CustomResource):
-    keepers: pulumi.Output[dict]
+    keepers: pulumi.Output[Optional[Dict[str, Any]]] = pulumi.output_property("keepers")
     """
     Arbitrary map of values that, when changed, will
     trigger a new id to be generated.
     """
-    max: pulumi.Output[float]
+    max: pulumi.Output[float] = pulumi.output_property("max")
     """
     The maximum inclusive value of the range.
     """
-    min: pulumi.Output[float]
+    min: pulumi.Output[float] = pulumi.output_property("min")
     """
     The minimum inclusive value of the range.
     """
-    result: pulumi.Output[float]
+    result: pulumi.Output[float] = pulumi.output_property("result")
     """
     (int) The random Integer result.
     """
-    seed: pulumi.Output[str]
+    seed: pulumi.Output[Optional[str]] = pulumi.output_property("seed")
     """
     A custom seed to always produce the same value.
     """
-    def __init__(__self__, resource_name, opts=None, keepers=None, max=None, min=None, seed=None, __props__=None, __name__=None, __opts__=None):
+    # pylint: disable=no-self-argument
+    def __init__(__self__, resource_name, opts: Optional[pulumi.ResourceOptions] = None, keepers: Optional[pulumi.Input[Dict[str, Any]]] = None, max: Optional[pulumi.Input[float]] = None, min: Optional[pulumi.Input[float]] = None, seed: Optional[pulumi.Input[str]] = None, __props__=None, __name__=None, __opts__=None) -> None:
         """
         The resource `RandomInteger` generates random values from a given range, described by the `min` and `max` attributes of a given resource.
 
@@ -69,7 +72,7 @@ class RandomInteger(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] keepers: Arbitrary map of values that, when changed, will
+        :param pulumi.Input[Dict[str, Any]] keepers: Arbitrary map of values that, when changed, will
                trigger a new id to be generated.
         :param pulumi.Input[float] max: The maximum inclusive value of the range.
         :param pulumi.Input[float] min: The minimum inclusive value of the range.
@@ -86,7 +89,7 @@ class RandomInteger(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -108,7 +111,7 @@ class RandomInteger(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, keepers=None, max=None, min=None, result=None, seed=None):
+    def get(resource_name: str, id: str, opts: Optional[pulumi.ResourceOptions] = None, keepers: Optional[pulumi.Input[Dict[str, Any]]] = None, max: Optional[pulumi.Input[float]] = None, min: Optional[pulumi.Input[float]] = None, result: Optional[pulumi.Input[float]] = None, seed: Optional[pulumi.Input[str]] = None) -> 'RandomInteger':
         """
         Get an existing RandomInteger resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -116,7 +119,7 @@ class RandomInteger(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] keepers: Arbitrary map of values that, when changed, will
+        :param pulumi.Input[Dict[str, Any]] keepers: Arbitrary map of values that, when changed, will
                trigger a new id to be generated.
         :param pulumi.Input[float] max: The maximum inclusive value of the range.
         :param pulumi.Input[float] min: The minimum inclusive value of the range.
@@ -135,7 +138,8 @@ class RandomInteger(pulumi.CustomResource):
         return RandomInteger(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
