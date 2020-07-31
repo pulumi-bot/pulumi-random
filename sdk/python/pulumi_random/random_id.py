@@ -5,45 +5,48 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['RandomId']
 
 
 class RandomId(pulumi.CustomResource):
-    b64: pulumi.Output[str]
-    b64_std: pulumi.Output[str]
+    b64: pulumi.Output[str] = pulumi.output_property("b64")
+    b64_std: pulumi.Output[str] = pulumi.output_property("b64Std")
     """
     The generated id presented in base64 without additional transformations.
     """
-    b64_url: pulumi.Output[str]
+    b64_url: pulumi.Output[str] = pulumi.output_property("b64Url")
     """
     The generated id presented in base64, using the URL-friendly character set: case-sensitive letters, digits and the characters `_` and `-`.
     """
-    byte_length: pulumi.Output[float]
+    byte_length: pulumi.Output[float] = pulumi.output_property("byteLength")
     """
     The number of random bytes to produce. The
     minimum value is 1, which produces eight bits of randomness.
     """
-    dec: pulumi.Output[str]
+    dec: pulumi.Output[str] = pulumi.output_property("dec")
     """
     The generated id presented in non-padded decimal digits.
     """
-    hex: pulumi.Output[str]
+    hex: pulumi.Output[str] = pulumi.output_property("hex")
     """
     The generated id presented in padded hexadecimal digits. This result will always be twice as long as the requested byte length.
     """
-    keepers: pulumi.Output[dict]
+    keepers: pulumi.Output[Optional[Dict[str, Any]]] = pulumi.output_property("keepers")
     """
     Arbitrary map of values that, when changed, will
     trigger a new id to be generated.
     """
-    prefix: pulumi.Output[str]
+    prefix: pulumi.Output[Optional[str]] = pulumi.output_property("prefix")
     """
     Arbitrary string to prefix the output value with. This
     string is supplied as-is, meaning it is not guaranteed to be URL-safe or
     base64 encoded.
     """
-    def __init__(__self__, resource_name, opts=None, byte_length=None, keepers=None, prefix=None, __props__=None, __name__=None, __opts__=None):
+    # pylint: disable=no-self-argument
+    def __init__(__self__, resource_name, opts: Optional[pulumi.ResourceOptions] = None, byte_length: Optional[pulumi.Input[float]] = None, keepers: Optional[pulumi.Input[Dict[str, Any]]] = None, prefix: Optional[pulumi.Input[str]] = None, __props__=None, __name__=None, __opts__=None) -> None:
         """
         The resource `RandomId` generates random numbers that are intended to be
         used as unique identifiers for other resources.
@@ -84,7 +87,7 @@ class RandomId(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] byte_length: The number of random bytes to produce. The
                minimum value is 1, which produces eight bits of randomness.
-        :param pulumi.Input[dict] keepers: Arbitrary map of values that, when changed, will
+        :param pulumi.Input[Dict[str, Any]] keepers: Arbitrary map of values that, when changed, will
                trigger a new id to be generated.
         :param pulumi.Input[str] prefix: Arbitrary string to prefix the output value with. This
                string is supplied as-is, meaning it is not guaranteed to be URL-safe or
@@ -101,7 +104,7 @@ class RandomId(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -124,7 +127,7 @@ class RandomId(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, b64=None, b64_std=None, b64_url=None, byte_length=None, dec=None, hex=None, keepers=None, prefix=None):
+    def get(resource_name: str, id: str, opts: Optional[pulumi.ResourceOptions] = None, b64: Optional[pulumi.Input[str]] = None, b64_std: Optional[pulumi.Input[str]] = None, b64_url: Optional[pulumi.Input[str]] = None, byte_length: Optional[pulumi.Input[float]] = None, dec: Optional[pulumi.Input[str]] = None, hex: Optional[pulumi.Input[str]] = None, keepers: Optional[pulumi.Input[Dict[str, Any]]] = None, prefix: Optional[pulumi.Input[str]] = None) -> 'RandomId':
         """
         Get an existing RandomId resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -138,7 +141,7 @@ class RandomId(pulumi.CustomResource):
                minimum value is 1, which produces eight bits of randomness.
         :param pulumi.Input[str] dec: The generated id presented in non-padded decimal digits.
         :param pulumi.Input[str] hex: The generated id presented in padded hexadecimal digits. This result will always be twice as long as the requested byte length.
-        :param pulumi.Input[dict] keepers: Arbitrary map of values that, when changed, will
+        :param pulumi.Input[Dict[str, Any]] keepers: Arbitrary map of values that, when changed, will
                trigger a new id to be generated.
         :param pulumi.Input[str] prefix: Arbitrary string to prefix the output value with. This
                string is supplied as-is, meaning it is not guaranteed to be URL-safe or
@@ -159,7 +162,8 @@ class RandomId(pulumi.CustomResource):
         return RandomId(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
