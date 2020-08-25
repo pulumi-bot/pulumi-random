@@ -13,7 +13,7 @@ __all__ = ['RandomUuid']
 
 class RandomUuid(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  __props__=None,
