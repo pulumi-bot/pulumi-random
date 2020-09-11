@@ -17,7 +17,7 @@ class RandomShuffle(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  inputs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 result_count: Optional[pulumi.Input[float]] = None,
+                 result_count: Optional[pulumi.Input[int]] = None,
                  seed: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -49,7 +49,7 @@ class RandomShuffle(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[str]]] inputs: The list of strings to shuffle.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will
                trigger a new id to be generated.
-        :param pulumi.Input[float] result_count: The number of results to return. Defaults to
+        :param pulumi.Input[int] result_count: The number of results to return. Defaults to
                the number of items in the `input` list. If fewer items are requested,
                some elements will be excluded from the result. If more items are requested,
                items will be repeated in the result but not more frequently than the number
@@ -97,7 +97,7 @@ class RandomShuffle(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             inputs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
             keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-            result_count: Optional[pulumi.Input[float]] = None,
+            result_count: Optional[pulumi.Input[int]] = None,
             results: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
             seed: Optional[pulumi.Input[str]] = None) -> 'RandomShuffle':
         """
@@ -110,7 +110,7 @@ class RandomShuffle(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[str]]] inputs: The list of strings to shuffle.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will
                trigger a new id to be generated.
-        :param pulumi.Input[float] result_count: The number of results to return. Defaults to
+        :param pulumi.Input[int] result_count: The number of results to return. Defaults to
                the number of items in the `input` list. If fewer items are requested,
                some elements will be excluded from the result. If more items are requested,
                items will be repeated in the result but not more frequently than the number
@@ -153,7 +153,7 @@ class RandomShuffle(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resultCount")
-    def result_count(self) -> pulumi.Output[Optional[float]]:
+    def result_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of results to return. Defaults to
         the number of items in the `input` list. If fewer items are requested,
