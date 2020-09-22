@@ -13,3 +13,5 @@ replace (
 	github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.4.3+incompatible
 	github.com/terraform-providers/terraform-provider-random => github.com/pulumi/terraform-provider-random v1.3.2-0.20200707155416-47754b56d29d
 )
+
+replace github.com/pulumi/tf2pulumi => ../../tf2pulumi
