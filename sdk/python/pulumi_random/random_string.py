@@ -40,18 +40,6 @@ class RandomString(pulumi.CustomResource):
         continue to exist. For unique ids please use the `RandomId` resource, for sensitive
         random values please use the `RandomPassword` resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_random as random
-
-        random = random.RandomString("random",
-            length=16,
-            override_special="/@£$",
-            special=True)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will

@@ -15,31 +15,6 @@ namespace Pulumi.Random
     /// 
     /// This resource uses the `hashicorp/go-uuid` to generate a UUID-formatted string
     /// for use with services needed a unique string identifier.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// The following example shows how to generate a unique name for an Azure Resource Group.
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Random = Pulumi.Random;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var testRandomUuid = new Random.RandomUuid("testRandomUuid", new Random.RandomUuidArgs
-    ///         {
-    ///         });
-    ///         var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "Central US",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// </summary>
     public partial class RandomUuid : Pulumi.CustomResource
     {
