@@ -35,28 +35,6 @@ class RandomId(pulumi.CustomResource):
         unique names during the brief period where both the old and new resources
         exist concurrently.
 
-        ## Example Usage
-
-        The following example shows how to generate a unique name for an AWS EC2
-        instance that changes each time a new AMI id is selected.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_random as random
-
-        server_random_id = random.RandomId("serverRandomId",
-            byte_length=8,
-            keepers={
-                "ami_id": var["ami_id"],
-            })
-        server_instance = aws.ec2.Instance("serverInstance",
-            ami=server_random_id.keepers["amiId"],
-            tags={
-                "Name": server_random_id.hex.apply(lambda hex: f"web-server {hex}"),
-            })
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] byte_length: The number of random bytes to produce. The

@@ -26,19 +26,6 @@ class RandomUuid(pulumi.CustomResource):
         This resource uses the `hashicorp/go-uuid` to generate a UUID-formatted string
         for use with services needed a unique string identifier.
 
-        ## Example Usage
-
-        The following example shows how to generate a unique name for an Azure Resource Group.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        test_random_uuid = random.RandomUuid("testRandomUuid")
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="Central US")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will

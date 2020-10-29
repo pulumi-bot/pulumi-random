@@ -16,49 +16,6 @@ namespace Pulumi.Random
     /// the `create_before_destroy` lifecycle flag set, to avoid conflicts with
     /// unique names during the brief period where both the old and new resources
     /// exist concurrently.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// The following example shows how to generate a random priority between 1 and 50000 for
-    /// a `aws_alb_listener_rule` resource:
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Random = Pulumi.Random;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var priority = new Random.RandomInteger("priority", new Random.RandomIntegerArgs
-    ///         {
-    ///             Keepers = 
-    ///             {
-    ///                 { "listener_arn", @var.Listener_arn },
-    ///             },
-    ///             Max = 50000,
-    ///             Min = 1,
-    ///         });
-    ///         var main = new Aws.Alb.ListenerRule("main", new Aws.Alb.ListenerRuleArgs
-    ///         {
-    ///             Actions = 
-    ///             {
-    ///                 new Aws.Alb.Inputs.ListenerRuleActionArgs
-    ///                 {
-    ///                     TargetGroupArn = @var.Target_group_arn,
-    ///                     Type = "forward",
-    ///                 },
-    ///             },
-    ///             ListenerArn = @var.Listener_arn,
-    ///             Priority = priority.Result,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// The result of the above will set a random priority.
     /// </summary>
     public partial class RandomInteger : Pulumi.CustomResource
     {

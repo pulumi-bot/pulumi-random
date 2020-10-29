@@ -38,25 +38,6 @@ class RandomPassword(pulumi.CustomResource):
 
         This resource *does* use a cryptographic random number generator.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_random as random
-
-        password = random.RandomPassword("password",
-            length=16,
-            special=True,
-            override_special="_%@")
-        example = aws.rds.Instance("example",
-            instance_class="db.t3.micro",
-            allocated_storage=64,
-            engine="mysql",
-            username="someone",
-            password=password.result)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """

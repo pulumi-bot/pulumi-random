@@ -30,33 +30,6 @@ class RandomInteger(pulumi.CustomResource):
         unique names during the brief period where both the old and new resources
         exist concurrently.
 
-        ## Example Usage
-
-        The following example shows how to generate a random priority between 1 and 50000 for
-        a `aws_alb_listener_rule` resource:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_random as random
-
-        priority = random.RandomInteger("priority",
-            keepers={
-                "listener_arn": var["listener_arn"],
-            },
-            max=50000,
-            min=1)
-        main = aws.alb.ListenerRule("main",
-            actions=[aws.alb.ListenerRuleActionArgs(
-                target_group_arn=var["target_group_arn"],
-                type="forward",
-            )],
-            listener_arn=var["listener_arn"],
-            priority=priority.result)
-        ```
-
-        The result of the above will set a random priority.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will
