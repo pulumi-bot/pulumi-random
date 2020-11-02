@@ -47,6 +47,10 @@ namespace Pulumi.Random
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Random Password can be imported by specifying the value of the string
     /// </summary>
     public partial class RandomPassword : Pulumi.CustomResource
     {

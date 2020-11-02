@@ -57,6 +57,12 @@ namespace Pulumi.Random
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Random Ids can be imported using the `b64_url` with an optional `prefix`. This can be used to replace a config value with a value interpolated from the random provider without experiencing diffs. Example with no prefix
+    /// 
+    ///  Example with prefix (prefix is separated by a `,`)
     /// </summary>
     public partial class RandomId : Pulumi.CustomResource
     {

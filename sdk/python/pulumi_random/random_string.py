@@ -52,6 +52,10 @@ class RandomString(pulumi.CustomResource):
             special=True)
         ```
 
+        ## Import
+
+        Strings can be imported by just specifying the value of the string
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will
