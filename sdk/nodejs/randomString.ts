@@ -27,6 +27,10 @@ import * as utilities from "./utilities";
  *     special: true,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Strings can be imported by just specifying the value of the string
  */
 export class RandomString extends pulumi.CustomResource {
     /**

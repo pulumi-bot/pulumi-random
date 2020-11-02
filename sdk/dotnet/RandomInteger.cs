@@ -59,6 +59,10 @@ namespace Pulumi.Random
     /// ```
     /// 
     /// The result of the above will set a random priority.
+    /// 
+    /// ## Import
+    /// 
+    /// Random integers can be imported using the `result`, `min`, and `max`, with an optional `seed`. This can be used to replace a config value with a value interpolated from the random provider without experiencing diffs. Example (values are separated by a `,`)
     /// </summary>
     public partial class RandomInteger : Pulumi.CustomResource
     {
