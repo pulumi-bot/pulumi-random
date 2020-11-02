@@ -22,6 +22,12 @@ import (
 // the `createBeforeDestroy` lifecycle flag set to avoid conflicts with
 // unique names during the brief period where both the old and new resources
 // exist concurrently.
+//
+// ## Import
+//
+// Random Ids can be imported using the `b64_url` with an optional `prefix`. This can be used to replace a config value with a value interpolated from the random provider without experiencing diffs. Example with no prefix
+//
+//  Example with prefix (prefix is separated by a `,`)
 type RandomId struct {
 	pulumi.CustomResourceState
 

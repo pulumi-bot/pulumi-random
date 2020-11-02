@@ -57,6 +57,10 @@ class RandomPassword(pulumi.CustomResource):
             password=password.result)
         ```
 
+        ## Import
+
+        Random Password can be imported by specifying the value of the string
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """

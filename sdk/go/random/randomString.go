@@ -46,6 +46,10 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Strings can be imported by just specifying the value of the string
 type RandomString struct {
 	pulumi.CustomResourceState
 

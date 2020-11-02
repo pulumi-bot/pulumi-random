@@ -25,6 +25,10 @@ import * as utilities from "./utilities";
  *     location: "Central US",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Random UUID's can be imported. This can be used to replace a config value with a value interpolated from the random provider without experiencing diffs. Example
  */
 export class RandomUuid extends pulumi.CustomResource {
     /**
