@@ -93,9 +93,6 @@ func NewRandomString(ctx *pulumi.Context,
 	if args == nil || args.Length == nil {
 		return nil, errors.New("missing required argument 'Length'")
 	}
-	if args == nil {
-		args = &RandomStringArgs{}
-	}
 	var resource RandomString
 	err := ctx.RegisterResource("random:index/randomString:RandomString", name, args, &resource, opts...)
 	if err != nil {

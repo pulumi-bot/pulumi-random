@@ -78,9 +78,6 @@ func NewRandomPassword(ctx *pulumi.Context,
 	if args == nil || args.Length == nil {
 		return nil, errors.New("missing required argument 'Length'")
 	}
-	if args == nil {
-		args = &RandomPasswordArgs{}
-	}
 	var resource RandomPassword
 	err := ctx.RegisterResource("random:index/randomPassword:RandomPassword", name, args, &resource, opts...)
 	if err != nil {

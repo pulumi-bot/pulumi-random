@@ -79,9 +79,6 @@ func NewRandomShuffle(ctx *pulumi.Context,
 	if args == nil || args.Inputs == nil {
 		return nil, errors.New("missing required argument 'Inputs'")
 	}
-	if args == nil {
-		args = &RandomShuffleArgs{}
-	}
 	var resource RandomShuffle
 	err := ctx.RegisterResource("random:index/randomShuffle:RandomShuffle", name, args, &resource, opts...)
 	if err != nil {

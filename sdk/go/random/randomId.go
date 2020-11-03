@@ -53,9 +53,6 @@ func NewRandomId(ctx *pulumi.Context,
 	if args == nil || args.ByteLength == nil {
 		return nil, errors.New("missing required argument 'ByteLength'")
 	}
-	if args == nil {
-		args = &RandomIdArgs{}
-	}
 	var resource RandomId
 	err := ctx.RegisterResource("random:index/randomId:RandomId", name, args, &resource, opts...)
 	if err != nil {

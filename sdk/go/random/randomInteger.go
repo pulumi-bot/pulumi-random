@@ -87,9 +87,6 @@ func NewRandomInteger(ctx *pulumi.Context,
 	if args == nil || args.Min == nil {
 		return nil, errors.New("missing required argument 'Min'")
 	}
-	if args == nil {
-		args = &RandomIntegerArgs{}
-	}
 	var resource RandomInteger
 	err := ctx.RegisterResource("random:index/randomInteger:RandomInteger", name, args, &resource, opts...)
 	if err != nil {
