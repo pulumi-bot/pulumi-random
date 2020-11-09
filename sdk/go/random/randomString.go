@@ -4,6 +4,8 @@
 package random
 
 import (
+	"context"
+	"fmt"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -90,11 +92,11 @@ type RandomString struct {
 // NewRandomString registers a new resource with the given unique name, arguments, and options.
 func NewRandomString(ctx *pulumi.Context,
 	name string, args *RandomStringArgs, opts ...pulumi.ResourceOption) (*RandomString, error) {
-	if args == nil || args.Length == nil {
-		return nil, errors.New("missing required argument 'Length'")
-	}
 	if args == nil {
-		args = &RandomStringArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+	if args.Length == nil {
+		return nil, errors.New("invalid value for required argument 'Length'")
 	}
 	var resource RandomString
 	err := ctx.RegisterResource("random:index/randomString:RandomString", name, args, &resource, opts...)
@@ -276,4 +278,43 @@ type RandomStringArgs struct {
 
 func (RandomStringArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*randomStringArgs)(nil)).Elem()
+}
+
+type RandomStringInput interface {
+	pulumi.Input
+
+	ToRandomStringOutput() RandomStringOutput
+	ToRandomStringOutputWithContext(ctx context.Context) RandomStringOutput
+}
+
+func (RandomString) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomString)(nil)).Elem()
+}
+
+func (i RandomString) ToRandomStringOutput() RandomStringOutput {
+	return i.ToRandomStringOutputWithContext(context.Background())
+}
+
+func (i RandomString) ToRandomStringOutputWithContext(ctx context.Context) RandomStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RandomStringOutput)
+}
+
+type RandomStringOutput struct {
+	*pulumi.OutputState
+}
+
+func (RandomStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomStringOutput)(nil)).Elem()
+}
+
+func (o RandomStringOutput) ToRandomStringOutput() RandomStringOutput {
+	return o
+}
+
+func (o RandomStringOutput) ToRandomStringOutputWithContext(ctx context.Context) RandomStringOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RandomStringOutput{})
 }

@@ -4,6 +4,8 @@
 package random
 
 import (
+	"context"
+	"fmt"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -50,11 +52,11 @@ type RandomId struct {
 // NewRandomId registers a new resource with the given unique name, arguments, and options.
 func NewRandomId(ctx *pulumi.Context,
 	name string, args *RandomIdArgs, opts ...pulumi.ResourceOption) (*RandomId, error) {
-	if args == nil || args.ByteLength == nil {
-		return nil, errors.New("missing required argument 'ByteLength'")
-	}
 	if args == nil {
-		args = &RandomIdArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+	if args.ByteLength == nil {
+		return nil, errors.New("invalid value for required argument 'ByteLength'")
 	}
 	var resource RandomId
 	err := ctx.RegisterResource("random:index/randomId:RandomId", name, args, &resource, opts...)
@@ -156,4 +158,43 @@ type RandomIdArgs struct {
 
 func (RandomIdArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*randomIdArgs)(nil)).Elem()
+}
+
+type RandomIdInput interface {
+	pulumi.Input
+
+	ToRandomIdOutput() RandomIdOutput
+	ToRandomIdOutputWithContext(ctx context.Context) RandomIdOutput
+}
+
+func (RandomId) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomId)(nil)).Elem()
+}
+
+func (i RandomId) ToRandomIdOutput() RandomIdOutput {
+	return i.ToRandomIdOutputWithContext(context.Background())
+}
+
+func (i RandomId) ToRandomIdOutputWithContext(ctx context.Context) RandomIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RandomIdOutput)
+}
+
+type RandomIdOutput struct {
+	*pulumi.OutputState
+}
+
+func (RandomIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomIdOutput)(nil)).Elem()
+}
+
+func (o RandomIdOutput) ToRandomIdOutput() RandomIdOutput {
+	return o
+}
+
+func (o RandomIdOutput) ToRandomIdOutputWithContext(ctx context.Context) RandomIdOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RandomIdOutput{})
 }
