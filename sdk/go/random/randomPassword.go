@@ -55,6 +55,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Random Password can be imported by specifying the value of the string
+//
+// ```sh
+//  $ pulumi import random:index/randomPassword:RandomPassword password securepassword
+// ```
 type RandomPassword struct {
 	pulumi.CustomResourceState
 
