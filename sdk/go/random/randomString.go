@@ -46,6 +46,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Strings can be imported by just specifying the value of the string
+//
+// ```sh
+//  $ pulumi import random:index/randomString:RandomString test test
+// ```
 type RandomString struct {
 	pulumi.CustomResourceState
 
