@@ -4,6 +4,8 @@
 package random
 
 import (
+	"context"
+	"fmt"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -75,11 +77,11 @@ type RandomPassword struct {
 // NewRandomPassword registers a new resource with the given unique name, arguments, and options.
 func NewRandomPassword(ctx *pulumi.Context,
 	name string, args *RandomPasswordArgs, opts ...pulumi.ResourceOption) (*RandomPassword, error) {
-	if args == nil || args.Length == nil {
-		return nil, errors.New("missing required argument 'Length'")
-	}
 	if args == nil {
-		args = &RandomPasswordArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+	if args.Length == nil {
+		return nil, errors.New("invalid value for required argument 'Length'")
 	}
 	var resource RandomPassword
 	err := ctx.RegisterResource("random:index/randomPassword:RandomPassword", name, args, &resource, opts...)
@@ -167,4 +169,43 @@ type RandomPasswordArgs struct {
 
 func (RandomPasswordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*randomPasswordArgs)(nil)).Elem()
+}
+
+type RandomPasswordInput interface {
+	pulumi.Input
+
+	ToRandomPasswordOutput() RandomPasswordOutput
+	ToRandomPasswordOutputWithContext(ctx context.Context) RandomPasswordOutput
+}
+
+func (RandomPassword) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomPassword)(nil)).Elem()
+}
+
+func (i RandomPassword) ToRandomPasswordOutput() RandomPasswordOutput {
+	return i.ToRandomPasswordOutputWithContext(context.Background())
+}
+
+func (i RandomPassword) ToRandomPasswordOutputWithContext(ctx context.Context) RandomPasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RandomPasswordOutput)
+}
+
+type RandomPasswordOutput struct {
+	*pulumi.OutputState
+}
+
+func (RandomPasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomPasswordOutput)(nil)).Elem()
+}
+
+func (o RandomPasswordOutput) ToRandomPasswordOutput() RandomPasswordOutput {
+	return o
+}
+
+func (o RandomPasswordOutput) ToRandomPasswordOutputWithContext(ctx context.Context) RandomPasswordOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RandomPasswordOutput{})
 }
