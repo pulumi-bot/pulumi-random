@@ -4,6 +4,7 @@
 package random
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -156,4 +157,43 @@ type RandomIdArgs struct {
 
 func (RandomIdArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*randomIdArgs)(nil)).Elem()
+}
+
+type RandomIdInput interface {
+	pulumi.Input
+
+	ToRandomIdOutput() RandomIdOutput
+	ToRandomIdOutputWithContext(ctx context.Context) RandomIdOutput
+}
+
+func (RandomId) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomId)(nil)).Elem()
+}
+
+func (i RandomId) ToRandomIdOutput() RandomIdOutput {
+	return i.ToRandomIdOutputWithContext(context.Background())
+}
+
+func (i RandomId) ToRandomIdOutputWithContext(ctx context.Context) RandomIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RandomIdOutput)
+}
+
+type RandomIdOutput struct {
+	*pulumi.OutputState
+}
+
+func (RandomIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomIdOutput)(nil)).Elem()
+}
+
+func (o RandomIdOutput) ToRandomIdOutput() RandomIdOutput {
+	return o
+}
+
+func (o RandomIdOutput) ToRandomIdOutputWithContext(ctx context.Context) RandomIdOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RandomIdOutput{})
 }
