@@ -4,6 +4,7 @@
 package random
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -76,11 +77,12 @@ type RandomShuffle struct {
 // NewRandomShuffle registers a new resource with the given unique name, arguments, and options.
 func NewRandomShuffle(ctx *pulumi.Context,
 	name string, args *RandomShuffleArgs, opts ...pulumi.ResourceOption) (*RandomShuffle, error) {
-	if args == nil || args.Inputs == nil {
-		return nil, errors.New("missing required argument 'Inputs'")
-	}
 	if args == nil {
-		args = &RandomShuffleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Inputs == nil {
+		return nil, errors.New("invalid value for required argument 'Inputs'")
 	}
 	var resource RandomShuffle
 	err := ctx.RegisterResource("random:index/randomShuffle:RandomShuffle", name, args, &resource, opts...)
@@ -198,4 +200,43 @@ type RandomShuffleArgs struct {
 
 func (RandomShuffleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*randomShuffleArgs)(nil)).Elem()
+}
+
+type RandomShuffleInput interface {
+	pulumi.Input
+
+	ToRandomShuffleOutput() RandomShuffleOutput
+	ToRandomShuffleOutputWithContext(ctx context.Context) RandomShuffleOutput
+}
+
+func (RandomShuffle) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomShuffle)(nil)).Elem()
+}
+
+func (i RandomShuffle) ToRandomShuffleOutput() RandomShuffleOutput {
+	return i.ToRandomShuffleOutputWithContext(context.Background())
+}
+
+func (i RandomShuffle) ToRandomShuffleOutputWithContext(ctx context.Context) RandomShuffleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RandomShuffleOutput)
+}
+
+type RandomShuffleOutput struct {
+	*pulumi.OutputState
+}
+
+func (RandomShuffleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomShuffleOutput)(nil)).Elem()
+}
+
+func (o RandomShuffleOutput) ToRandomShuffleOutput() RandomShuffleOutput {
+	return o
+}
+
+func (o RandomShuffleOutput) ToRandomShuffleOutputWithContext(ctx context.Context) RandomShuffleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RandomShuffleOutput{})
 }
