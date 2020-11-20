@@ -78,7 +78,7 @@ class RandomPassword(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['keepers'] = keepers
-            if length is None:
+            if length is None and not opts.urn:
                 raise TypeError("Missing required property 'length'")
             __props__['length'] = length
             __props__['lower'] = lower
