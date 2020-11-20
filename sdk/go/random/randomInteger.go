@@ -4,6 +4,7 @@
 package random
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -81,14 +82,15 @@ type RandomInteger struct {
 // NewRandomInteger registers a new resource with the given unique name, arguments, and options.
 func NewRandomInteger(ctx *pulumi.Context,
 	name string, args *RandomIntegerArgs, opts ...pulumi.ResourceOption) (*RandomInteger, error) {
-	if args == nil || args.Max == nil {
-		return nil, errors.New("missing required argument 'Max'")
-	}
-	if args == nil || args.Min == nil {
-		return nil, errors.New("missing required argument 'Min'")
-	}
 	if args == nil {
-		args = &RandomIntegerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Max == nil {
+		return nil, errors.New("invalid value for required argument 'Max'")
+	}
+	if args.Min == nil {
+		return nil, errors.New("invalid value for required argument 'Min'")
 	}
 	var resource RandomInteger
 	err := ctx.RegisterResource("random:index/randomInteger:RandomInteger", name, args, &resource, opts...)
@@ -170,4 +172,43 @@ type RandomIntegerArgs struct {
 
 func (RandomIntegerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*randomIntegerArgs)(nil)).Elem()
+}
+
+type RandomIntegerInput interface {
+	pulumi.Input
+
+	ToRandomIntegerOutput() RandomIntegerOutput
+	ToRandomIntegerOutputWithContext(ctx context.Context) RandomIntegerOutput
+}
+
+func (RandomInteger) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomInteger)(nil)).Elem()
+}
+
+func (i RandomInteger) ToRandomIntegerOutput() RandomIntegerOutput {
+	return i.ToRandomIntegerOutputWithContext(context.Background())
+}
+
+func (i RandomInteger) ToRandomIntegerOutputWithContext(ctx context.Context) RandomIntegerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RandomIntegerOutput)
+}
+
+type RandomIntegerOutput struct {
+	*pulumi.OutputState
+}
+
+func (RandomIntegerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomIntegerOutput)(nil)).Elem()
+}
+
+func (o RandomIntegerOutput) ToRandomIntegerOutput() RandomIntegerOutput {
+	return o
+}
+
+func (o RandomIntegerOutput) ToRandomIntegerOutputWithContext(ctx context.Context) RandomIntegerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RandomIntegerOutput{})
 }

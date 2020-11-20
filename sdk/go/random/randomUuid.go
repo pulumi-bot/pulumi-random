@@ -4,6 +4,7 @@
 package random
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -60,6 +61,7 @@ func NewRandomUuid(ctx *pulumi.Context,
 	if args == nil {
 		args = &RandomUuidArgs{}
 	}
+
 	var resource RandomUuid
 	err := ctx.RegisterResource("random:index/randomUuid:RandomUuid", name, args, &resource, opts...)
 	if err != nil {
@@ -116,4 +118,43 @@ type RandomUuidArgs struct {
 
 func (RandomUuidArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*randomUuidArgs)(nil)).Elem()
+}
+
+type RandomUuidInput interface {
+	pulumi.Input
+
+	ToRandomUuidOutput() RandomUuidOutput
+	ToRandomUuidOutputWithContext(ctx context.Context) RandomUuidOutput
+}
+
+func (RandomUuid) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomUuid)(nil)).Elem()
+}
+
+func (i RandomUuid) ToRandomUuidOutput() RandomUuidOutput {
+	return i.ToRandomUuidOutputWithContext(context.Background())
+}
+
+func (i RandomUuid) ToRandomUuidOutputWithContext(ctx context.Context) RandomUuidOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RandomUuidOutput)
+}
+
+type RandomUuidOutput struct {
+	*pulumi.OutputState
+}
+
+func (RandomUuidOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomUuidOutput)(nil)).Elem()
+}
+
+func (o RandomUuidOutput) ToRandomUuidOutput() RandomUuidOutput {
+	return o
+}
+
+func (o RandomUuidOutput) ToRandomUuidOutputWithContext(ctx context.Context) RandomUuidOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RandomUuidOutput{})
 }
