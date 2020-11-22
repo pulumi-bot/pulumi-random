@@ -4,6 +4,7 @@
 package random
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -36,6 +37,7 @@ func NewRandomPet(ctx *pulumi.Context,
 	if args == nil {
 		args = &RandomPetArgs{}
 	}
+
 	var resource RandomPet
 	err := ctx.RegisterResource("random:index/randomPet:RandomPet", name, args, &resource, opts...)
 	if err != nil {
@@ -112,4 +114,43 @@ type RandomPetArgs struct {
 
 func (RandomPetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*randomPetArgs)(nil)).Elem()
+}
+
+type RandomPetInput interface {
+	pulumi.Input
+
+	ToRandomPetOutput() RandomPetOutput
+	ToRandomPetOutputWithContext(ctx context.Context) RandomPetOutput
+}
+
+func (RandomPet) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomPet)(nil)).Elem()
+}
+
+func (i RandomPet) ToRandomPetOutput() RandomPetOutput {
+	return i.ToRandomPetOutputWithContext(context.Background())
+}
+
+func (i RandomPet) ToRandomPetOutputWithContext(ctx context.Context) RandomPetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RandomPetOutput)
+}
+
+type RandomPetOutput struct {
+	*pulumi.OutputState
+}
+
+func (RandomPetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomPetOutput)(nil)).Elem()
+}
+
+func (o RandomPetOutput) ToRandomPetOutput() RandomPetOutput {
+	return o
+}
+
+func (o RandomPetOutput) ToRandomPetOutputWithContext(ctx context.Context) RandomPetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RandomPetOutput{})
 }
