@@ -22,7 +22,7 @@ import (
 // import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elb"
 // 	"github.com/pulumi/pulumi-random/sdk/v2/go/random"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
@@ -77,11 +77,12 @@ type RandomShuffle struct {
 // NewRandomShuffle registers a new resource with the given unique name, arguments, and options.
 func NewRandomShuffle(ctx *pulumi.Context,
 	name string, args *RandomShuffleArgs, opts ...pulumi.ResourceOption) (*RandomShuffle, error) {
-	if args == nil || args.Inputs == nil {
-		return nil, errors.New("missing required argument 'Inputs'")
-	}
 	if args == nil {
-		args = &RandomShuffleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Inputs == nil {
+		return nil, errors.New("invalid value for required argument 'Inputs'")
 	}
 	var resource RandomShuffle
 	err := ctx.RegisterResource("random:index/randomShuffle:RandomShuffle", name, args, &resource, opts...)

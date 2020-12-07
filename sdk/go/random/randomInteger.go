@@ -29,7 +29,7 @@ import (
 // import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/alb"
 // 	"github.com/pulumi/pulumi-random/sdk/v2/go/random"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
@@ -90,14 +90,15 @@ type RandomInteger struct {
 // NewRandomInteger registers a new resource with the given unique name, arguments, and options.
 func NewRandomInteger(ctx *pulumi.Context,
 	name string, args *RandomIntegerArgs, opts ...pulumi.ResourceOption) (*RandomInteger, error) {
-	if args == nil || args.Max == nil {
-		return nil, errors.New("missing required argument 'Max'")
-	}
-	if args == nil || args.Min == nil {
-		return nil, errors.New("missing required argument 'Min'")
-	}
 	if args == nil {
-		args = &RandomIntegerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Max == nil {
+		return nil, errors.New("invalid value for required argument 'Max'")
+	}
+	if args.Min == nil {
+		return nil, errors.New("invalid value for required argument 'Min'")
 	}
 	var resource RandomInteger
 	err := ctx.RegisterResource("random:index/randomInteger:RandomInteger", name, args, &resource, opts...)
