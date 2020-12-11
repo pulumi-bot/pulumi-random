@@ -209,15 +209,15 @@ type RandomShuffleInput interface {
 	ToRandomShuffleOutputWithContext(ctx context.Context) RandomShuffleOutput
 }
 
-func (RandomShuffle) ElementType() reflect.Type {
-	return reflect.TypeOf((*RandomShuffle)(nil)).Elem()
+func (*RandomShuffle) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomShuffle)(nil))
 }
 
-func (i RandomShuffle) ToRandomShuffleOutput() RandomShuffleOutput {
+func (i *RandomShuffle) ToRandomShuffleOutput() RandomShuffleOutput {
 	return i.ToRandomShuffleOutputWithContext(context.Background())
 }
 
-func (i RandomShuffle) ToRandomShuffleOutputWithContext(ctx context.Context) RandomShuffleOutput {
+func (i *RandomShuffle) ToRandomShuffleOutputWithContext(ctx context.Context) RandomShuffleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RandomShuffleOutput)
 }
 
@@ -226,7 +226,7 @@ type RandomShuffleOutput struct {
 }
 
 func (RandomShuffleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RandomShuffleOutput)(nil)).Elem()
+	return reflect.TypeOf((*RandomShuffle)(nil))
 }
 
 func (o RandomShuffleOutput) ToRandomShuffleOutput() RandomShuffleOutput {
