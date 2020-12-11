@@ -189,6 +189,13 @@ type RandomIntegerInput interface {
 	ToRandomIntegerOutputWithContext(ctx context.Context) RandomIntegerOutput
 }
 
+type RandomIntegerPtrInput interface {
+	pulumi.Input
+
+	ToRandomIntegerPtrOutput() RandomIntegerPtrOutput
+	ToRandomIntegerPtrOutputWithContext(ctx context.Context) RandomIntegerPtrOutput
+}
+
 func (RandomInteger) ElementType() reflect.Type {
 	return reflect.TypeOf((*RandomInteger)(nil)).Elem()
 }
@@ -199,6 +206,14 @@ func (i RandomInteger) ToRandomIntegerOutput() RandomIntegerOutput {
 
 func (i RandomInteger) ToRandomIntegerOutputWithContext(ctx context.Context) RandomIntegerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RandomIntegerOutput)
+}
+
+func (i RandomInteger) ToRandomIntegerPtrOutput() RandomIntegerPtrOutput {
+	return i.ToRandomIntegerPtrOutputWithContext(context.Background())
+}
+
+func (i RandomInteger) ToRandomIntegerPtrOutputWithContext(ctx context.Context) RandomIntegerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RandomIntegerPtrOutput)
 }
 
 type RandomIntegerOutput struct {
@@ -217,6 +232,23 @@ func (o RandomIntegerOutput) ToRandomIntegerOutputWithContext(ctx context.Contex
 	return o
 }
 
+type RandomIntegerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RandomIntegerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RandomInteger)(nil)).Elem()
+}
+
+func (o RandomIntegerPtrOutput) ToRandomIntegerPtrOutput() RandomIntegerPtrOutput {
+	return o
+}
+
+func (o RandomIntegerPtrOutput) ToRandomIntegerPtrOutputWithContext(ctx context.Context) RandomIntegerPtrOutput {
+	return o
+}
+
 func init() {
 	pulumi.RegisterOutputType(RandomIntegerOutput{})
+	pulumi.RegisterOutputType(RandomIntegerPtrOutput{})
 }

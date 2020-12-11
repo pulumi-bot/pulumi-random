@@ -135,6 +135,13 @@ type RandomUuidInput interface {
 	ToRandomUuidOutputWithContext(ctx context.Context) RandomUuidOutput
 }
 
+type RandomUuidPtrInput interface {
+	pulumi.Input
+
+	ToRandomUuidPtrOutput() RandomUuidPtrOutput
+	ToRandomUuidPtrOutputWithContext(ctx context.Context) RandomUuidPtrOutput
+}
+
 func (RandomUuid) ElementType() reflect.Type {
 	return reflect.TypeOf((*RandomUuid)(nil)).Elem()
 }
@@ -145,6 +152,14 @@ func (i RandomUuid) ToRandomUuidOutput() RandomUuidOutput {
 
 func (i RandomUuid) ToRandomUuidOutputWithContext(ctx context.Context) RandomUuidOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RandomUuidOutput)
+}
+
+func (i RandomUuid) ToRandomUuidPtrOutput() RandomUuidPtrOutput {
+	return i.ToRandomUuidPtrOutputWithContext(context.Background())
+}
+
+func (i RandomUuid) ToRandomUuidPtrOutputWithContext(ctx context.Context) RandomUuidPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RandomUuidPtrOutput)
 }
 
 type RandomUuidOutput struct {
@@ -163,6 +178,23 @@ func (o RandomUuidOutput) ToRandomUuidOutputWithContext(ctx context.Context) Ran
 	return o
 }
 
+type RandomUuidPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RandomUuidPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RandomUuid)(nil)).Elem()
+}
+
+func (o RandomUuidPtrOutput) ToRandomUuidPtrOutput() RandomUuidPtrOutput {
+	return o
+}
+
+func (o RandomUuidPtrOutput) ToRandomUuidPtrOutputWithContext(ctx context.Context) RandomUuidPtrOutput {
+	return o
+}
+
 func init() {
 	pulumi.RegisterOutputType(RandomUuidOutput{})
+	pulumi.RegisterOutputType(RandomUuidPtrOutput{})
 }

@@ -186,6 +186,13 @@ type RandomPasswordInput interface {
 	ToRandomPasswordOutputWithContext(ctx context.Context) RandomPasswordOutput
 }
 
+type RandomPasswordPtrInput interface {
+	pulumi.Input
+
+	ToRandomPasswordPtrOutput() RandomPasswordPtrOutput
+	ToRandomPasswordPtrOutputWithContext(ctx context.Context) RandomPasswordPtrOutput
+}
+
 func (RandomPassword) ElementType() reflect.Type {
 	return reflect.TypeOf((*RandomPassword)(nil)).Elem()
 }
@@ -196,6 +203,14 @@ func (i RandomPassword) ToRandomPasswordOutput() RandomPasswordOutput {
 
 func (i RandomPassword) ToRandomPasswordOutputWithContext(ctx context.Context) RandomPasswordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RandomPasswordOutput)
+}
+
+func (i RandomPassword) ToRandomPasswordPtrOutput() RandomPasswordPtrOutput {
+	return i.ToRandomPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i RandomPassword) ToRandomPasswordPtrOutputWithContext(ctx context.Context) RandomPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RandomPasswordPtrOutput)
 }
 
 type RandomPasswordOutput struct {
@@ -214,6 +229,23 @@ func (o RandomPasswordOutput) ToRandomPasswordOutputWithContext(ctx context.Cont
 	return o
 }
 
+type RandomPasswordPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RandomPasswordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RandomPassword)(nil)).Elem()
+}
+
+func (o RandomPasswordPtrOutput) ToRandomPasswordPtrOutput() RandomPasswordPtrOutput {
+	return o
+}
+
+func (o RandomPasswordPtrOutput) ToRandomPasswordPtrOutputWithContext(ctx context.Context) RandomPasswordPtrOutput {
+	return o
+}
+
 func init() {
 	pulumi.RegisterOutputType(RandomPasswordOutput{})
+	pulumi.RegisterOutputType(RandomPasswordPtrOutput{})
 }
