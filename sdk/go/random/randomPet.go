@@ -123,16 +123,31 @@ type RandomPetInput interface {
 	ToRandomPetOutputWithContext(ctx context.Context) RandomPetOutput
 }
 
-func (RandomPet) ElementType() reflect.Type {
-	return reflect.TypeOf((*RandomPet)(nil)).Elem()
+func (*RandomPet) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomPet)(nil))
 }
 
-func (i RandomPet) ToRandomPetOutput() RandomPetOutput {
+func (i *RandomPet) ToRandomPetOutput() RandomPetOutput {
 	return i.ToRandomPetOutputWithContext(context.Background())
 }
 
-func (i RandomPet) ToRandomPetOutputWithContext(ctx context.Context) RandomPetOutput {
+func (i *RandomPet) ToRandomPetOutputWithContext(ctx context.Context) RandomPetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RandomPetOutput)
+}
+
+func (i *RandomPet) ToRandomPetPtrOutput() RandomPetPtrOutput {
+	return i.ToRandomPetPtrOutputWithContext(context.Background())
+}
+
+func (i *RandomPet) ToRandomPetPtrOutputWithContext(ctx context.Context) RandomPetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RandomPetPtrOutput)
+}
+
+type RandomPetPtrInput interface {
+	pulumi.Input
+
+	ToRandomPetPtrOutput() RandomPetPtrOutput
+	ToRandomPetPtrOutputWithContext(ctx context.Context) RandomPetPtrOutput
 }
 
 type RandomPetOutput struct {
@@ -140,7 +155,7 @@ type RandomPetOutput struct {
 }
 
 func (RandomPetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RandomPetOutput)(nil)).Elem()
+	return reflect.TypeOf((*RandomPet)(nil))
 }
 
 func (o RandomPetOutput) ToRandomPetOutput() RandomPetOutput {
@@ -151,6 +166,23 @@ func (o RandomPetOutput) ToRandomPetOutputWithContext(ctx context.Context) Rando
 	return o
 }
 
+type RandomPetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RandomPetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RandomPet)(nil))
+}
+
+func (o RandomPetPtrOutput) ToRandomPetPtrOutput() RandomPetPtrOutput {
+	return o
+}
+
+func (o RandomPetPtrOutput) ToRandomPetPtrOutputWithContext(ctx context.Context) RandomPetPtrOutput {
+	return o
+}
+
 func init() {
 	pulumi.RegisterOutputType(RandomPetOutput{})
+	pulumi.RegisterOutputType(RandomPetPtrOutput{})
 }
