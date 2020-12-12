@@ -181,16 +181,31 @@ type RandomIdInput interface {
 	ToRandomIdOutputWithContext(ctx context.Context) RandomIdOutput
 }
 
-func (RandomId) ElementType() reflect.Type {
-	return reflect.TypeOf((*RandomId)(nil)).Elem()
+func (*RandomId) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomId)(nil))
 }
 
-func (i RandomId) ToRandomIdOutput() RandomIdOutput {
+func (i *RandomId) ToRandomIdOutput() RandomIdOutput {
 	return i.ToRandomIdOutputWithContext(context.Background())
 }
 
-func (i RandomId) ToRandomIdOutputWithContext(ctx context.Context) RandomIdOutput {
+func (i *RandomId) ToRandomIdOutputWithContext(ctx context.Context) RandomIdOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RandomIdOutput)
+}
+
+func (i *RandomId) ToRandomIdPtrOutput() RandomIdPtrOutput {
+	return i.ToRandomIdPtrOutputWithContext(context.Background())
+}
+
+func (i *RandomId) ToRandomIdPtrOutputWithContext(ctx context.Context) RandomIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RandomIdPtrOutput)
+}
+
+type RandomIdPtrInput interface {
+	pulumi.Input
+
+	ToRandomIdPtrOutput() RandomIdPtrOutput
+	ToRandomIdPtrOutputWithContext(ctx context.Context) RandomIdPtrOutput
 }
 
 type RandomIdOutput struct {
@@ -198,7 +213,7 @@ type RandomIdOutput struct {
 }
 
 func (RandomIdOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RandomIdOutput)(nil)).Elem()
+	return reflect.TypeOf((*RandomId)(nil))
 }
 
 func (o RandomIdOutput) ToRandomIdOutput() RandomIdOutput {
@@ -209,6 +224,23 @@ func (o RandomIdOutput) ToRandomIdOutputWithContext(ctx context.Context) RandomI
 	return o
 }
 
+type RandomIdPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RandomIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RandomId)(nil))
+}
+
+func (o RandomIdPtrOutput) ToRandomIdPtrOutput() RandomIdPtrOutput {
+	return o
+}
+
+func (o RandomIdPtrOutput) ToRandomIdPtrOutputWithContext(ctx context.Context) RandomIdPtrOutput {
+	return o
+}
+
 func init() {
 	pulumi.RegisterOutputType(RandomIdOutput{})
+	pulumi.RegisterOutputType(RandomIdPtrOutput{})
 }

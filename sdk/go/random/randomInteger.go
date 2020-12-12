@@ -189,16 +189,31 @@ type RandomIntegerInput interface {
 	ToRandomIntegerOutputWithContext(ctx context.Context) RandomIntegerOutput
 }
 
-func (RandomInteger) ElementType() reflect.Type {
-	return reflect.TypeOf((*RandomInteger)(nil)).Elem()
+func (*RandomInteger) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomInteger)(nil))
 }
 
-func (i RandomInteger) ToRandomIntegerOutput() RandomIntegerOutput {
+func (i *RandomInteger) ToRandomIntegerOutput() RandomIntegerOutput {
 	return i.ToRandomIntegerOutputWithContext(context.Background())
 }
 
-func (i RandomInteger) ToRandomIntegerOutputWithContext(ctx context.Context) RandomIntegerOutput {
+func (i *RandomInteger) ToRandomIntegerOutputWithContext(ctx context.Context) RandomIntegerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RandomIntegerOutput)
+}
+
+func (i *RandomInteger) ToRandomIntegerPtrOutput() RandomIntegerPtrOutput {
+	return i.ToRandomIntegerPtrOutputWithContext(context.Background())
+}
+
+func (i *RandomInteger) ToRandomIntegerPtrOutputWithContext(ctx context.Context) RandomIntegerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RandomIntegerPtrOutput)
+}
+
+type RandomIntegerPtrInput interface {
+	pulumi.Input
+
+	ToRandomIntegerPtrOutput() RandomIntegerPtrOutput
+	ToRandomIntegerPtrOutputWithContext(ctx context.Context) RandomIntegerPtrOutput
 }
 
 type RandomIntegerOutput struct {
@@ -206,7 +221,7 @@ type RandomIntegerOutput struct {
 }
 
 func (RandomIntegerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RandomIntegerOutput)(nil)).Elem()
+	return reflect.TypeOf((*RandomInteger)(nil))
 }
 
 func (o RandomIntegerOutput) ToRandomIntegerOutput() RandomIntegerOutput {
@@ -217,6 +232,23 @@ func (o RandomIntegerOutput) ToRandomIntegerOutputWithContext(ctx context.Contex
 	return o
 }
 
+type RandomIntegerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RandomIntegerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RandomInteger)(nil))
+}
+
+func (o RandomIntegerPtrOutput) ToRandomIntegerPtrOutput() RandomIntegerPtrOutput {
+	return o
+}
+
+func (o RandomIntegerPtrOutput) ToRandomIntegerPtrOutputWithContext(ctx context.Context) RandomIntegerPtrOutput {
+	return o
+}
+
 func init() {
 	pulumi.RegisterOutputType(RandomIntegerOutput{})
+	pulumi.RegisterOutputType(RandomIntegerPtrOutput{})
 }

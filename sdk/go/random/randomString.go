@@ -295,16 +295,31 @@ type RandomStringInput interface {
 	ToRandomStringOutputWithContext(ctx context.Context) RandomStringOutput
 }
 
-func (RandomString) ElementType() reflect.Type {
-	return reflect.TypeOf((*RandomString)(nil)).Elem()
+func (*RandomString) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomString)(nil))
 }
 
-func (i RandomString) ToRandomStringOutput() RandomStringOutput {
+func (i *RandomString) ToRandomStringOutput() RandomStringOutput {
 	return i.ToRandomStringOutputWithContext(context.Background())
 }
 
-func (i RandomString) ToRandomStringOutputWithContext(ctx context.Context) RandomStringOutput {
+func (i *RandomString) ToRandomStringOutputWithContext(ctx context.Context) RandomStringOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RandomStringOutput)
+}
+
+func (i *RandomString) ToRandomStringPtrOutput() RandomStringPtrOutput {
+	return i.ToRandomStringPtrOutputWithContext(context.Background())
+}
+
+func (i *RandomString) ToRandomStringPtrOutputWithContext(ctx context.Context) RandomStringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RandomStringPtrOutput)
+}
+
+type RandomStringPtrInput interface {
+	pulumi.Input
+
+	ToRandomStringPtrOutput() RandomStringPtrOutput
+	ToRandomStringPtrOutputWithContext(ctx context.Context) RandomStringPtrOutput
 }
 
 type RandomStringOutput struct {
@@ -312,7 +327,7 @@ type RandomStringOutput struct {
 }
 
 func (RandomStringOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RandomStringOutput)(nil)).Elem()
+	return reflect.TypeOf((*RandomString)(nil))
 }
 
 func (o RandomStringOutput) ToRandomStringOutput() RandomStringOutput {
@@ -323,6 +338,23 @@ func (o RandomStringOutput) ToRandomStringOutputWithContext(ctx context.Context)
 	return o
 }
 
+type RandomStringPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RandomStringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RandomString)(nil))
+}
+
+func (o RandomStringPtrOutput) ToRandomStringPtrOutput() RandomStringPtrOutput {
+	return o
+}
+
+func (o RandomStringPtrOutput) ToRandomStringPtrOutputWithContext(ctx context.Context) RandomStringPtrOutput {
+	return o
+}
+
 func init() {
 	pulumi.RegisterOutputType(RandomStringOutput{})
+	pulumi.RegisterOutputType(RandomStringPtrOutput{})
 }
