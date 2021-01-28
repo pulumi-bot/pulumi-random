@@ -194,15 +194,15 @@ type RandomIntegerInput interface {
 	ToRandomIntegerOutputWithContext(ctx context.Context) RandomIntegerOutput
 }
 
-func (RandomInteger) ElementType() reflect.Type {
-	return reflect.TypeOf((*RandomInteger)(nil)).Elem()
+func (*RandomInteger) ElementType() reflect.Type {
+	return reflect.TypeOf((*RandomInteger)(nil))
 }
 
-func (i RandomInteger) ToRandomIntegerOutput() RandomIntegerOutput {
+func (i *RandomInteger) ToRandomIntegerOutput() RandomIntegerOutput {
 	return i.ToRandomIntegerOutputWithContext(context.Background())
 }
 
-func (i RandomInteger) ToRandomIntegerOutputWithContext(ctx context.Context) RandomIntegerOutput {
+func (i *RandomInteger) ToRandomIntegerOutputWithContext(ctx context.Context) RandomIntegerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RandomIntegerOutput)
 }
 
@@ -211,7 +211,7 @@ type RandomIntegerOutput struct {
 }
 
 func (RandomIntegerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RandomIntegerOutput)(nil)).Elem()
+	return reflect.TypeOf((*RandomInteger)(nil))
 }
 
 func (o RandomIntegerOutput) ToRandomIntegerOutput() RandomIntegerOutput {
