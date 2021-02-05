@@ -50,7 +50,7 @@ namespace Pulumi.Random
     ///             Ami = serverRandomId.Keepers.Apply(keepers =&gt; keepers.AmiId),
     ///             Tags = 
     ///             {
-    ///                 { "Name", serverRandomId.Hex.Apply(hex =&gt; $"web-server {hex}") },
+    ///                 { "Name", serverRandomId.Hex.Apply(hex =&gt; Output.Format($"web-server {hex}")) },
     ///             },
     ///         });
     ///     }

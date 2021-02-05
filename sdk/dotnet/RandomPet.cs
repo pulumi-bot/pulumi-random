@@ -44,7 +44,7 @@ namespace Pulumi.Random
     ///             Ami = serverRandomPet.Keepers.Apply(keepers =&gt; keepers.AmiId),
     ///             Tags = 
     ///             {
-    ///                 { "Name", serverRandomPet.Id.Apply(id =&gt; $"web-server-{id}") },
+    ///                 { "Name", serverRandomPet.Id.Apply(id =&gt; Output.Format($"web-server-{id}")) },
     ///             },
     ///         });
     ///     }
