@@ -169,36 +169,36 @@ export interface RandomIdState {
     /**
      * The generated id presented in base64 without additional transformations.
      */
-    readonly b64Std?: pulumi.Input<string>;
+    readonly b64Std?: pulumi.Input<string | undefined>;
     /**
      * The generated id presented in base64, using the URL-friendly character set: case-sensitive letters, digits and the characters `_` and `-`.
      */
-    readonly b64Url?: pulumi.Input<string>;
+    readonly b64Url?: pulumi.Input<string | undefined>;
     /**
      * The number of random bytes to produce. The
      * minimum value is 1, which produces eight bits of randomness.
      */
-    readonly byteLength?: pulumi.Input<number>;
+    readonly byteLength?: pulumi.Input<number | undefined>;
     /**
      * The generated id presented in non-padded decimal digits.
      */
-    readonly dec?: pulumi.Input<string>;
+    readonly dec?: pulumi.Input<string | undefined>;
     /**
      * The generated id presented in padded hexadecimal digits. This result will always be twice as long as the requested byte length.
      */
-    readonly hex?: pulumi.Input<string>;
+    readonly hex?: pulumi.Input<string | undefined>;
     /**
      * Arbitrary map of values that, when changed, will
      * trigger a new id to be generated. See
      * the main provider documentation for more information.
      */
-    readonly keepers?: pulumi.Input<{[key: string]: any}>;
+    readonly keepers?: pulumi.Input<{[key: string]: any} | undefined>;
     /**
      * Arbitrary string to prefix the output value with. This
      * string is supplied as-is, meaning it is not guaranteed to be URL-safe or
      * base64 encoded.
      */
-    readonly prefix?: pulumi.Input<string>;
+    readonly prefix?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -215,11 +215,11 @@ export interface RandomIdArgs {
      * trigger a new id to be generated. See
      * the main provider documentation for more information.
      */
-    readonly keepers?: pulumi.Input<{[key: string]: any}>;
+    readonly keepers?: pulumi.Input<{[key: string]: any} | undefined>;
     /**
      * Arbitrary string to prefix the output value with. This
      * string is supplied as-is, meaning it is not guaranteed to be URL-safe or
      * base64 encoded.
      */
-    readonly prefix?: pulumi.Input<string>;
+    readonly prefix?: pulumi.Input<string | undefined>;
 }

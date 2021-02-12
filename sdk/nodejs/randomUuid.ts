@@ -112,11 +112,11 @@ export interface RandomUuidState {
      * trigger a new uuid to be generated. See
      * the main provider documentation for more information.
      */
-    readonly keepers?: pulumi.Input<{[key: string]: any}>;
+    readonly keepers?: pulumi.Input<{[key: string]: any} | undefined>;
     /**
      * The generated uuid presented in string format.
      */
-    readonly result?: pulumi.Input<string>;
+    readonly result?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -128,5 +128,5 @@ export interface RandomUuidArgs {
      * trigger a new uuid to be generated. See
      * the main provider documentation for more information.
      */
-    readonly keepers?: pulumi.Input<{[key: string]: any}>;
+    readonly keepers?: pulumi.Input<{[key: string]: any} | undefined>;
 }

@@ -152,23 +152,23 @@ export interface RandomIntegerState {
      * trigger a new id to be generated. See
      * the main provider documentation for more information.
      */
-    readonly keepers?: pulumi.Input<{[key: string]: any}>;
+    readonly keepers?: pulumi.Input<{[key: string]: any} | undefined>;
     /**
      * The maximum inclusive value of the range.
      */
-    readonly max?: pulumi.Input<number>;
+    readonly max?: pulumi.Input<number | undefined>;
     /**
      * The minimum inclusive value of the range.
      */
-    readonly min?: pulumi.Input<number>;
+    readonly min?: pulumi.Input<number | undefined>;
     /**
      * (int) The random Integer result.
      */
-    readonly result?: pulumi.Input<number>;
+    readonly result?: pulumi.Input<number | undefined>;
     /**
      * A custom seed to always produce the same value.
      */
-    readonly seed?: pulumi.Input<string>;
+    readonly seed?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -180,7 +180,7 @@ export interface RandomIntegerArgs {
      * trigger a new id to be generated. See
      * the main provider documentation for more information.
      */
-    readonly keepers?: pulumi.Input<{[key: string]: any}>;
+    readonly keepers?: pulumi.Input<{[key: string]: any} | undefined>;
     /**
      * The maximum inclusive value of the range.
      */
@@ -192,5 +192,5 @@ export interface RandomIntegerArgs {
     /**
      * A custom seed to always produce the same value.
      */
-    readonly seed?: pulumi.Input<string>;
+    readonly seed?: pulumi.Input<string | undefined>;
 }
