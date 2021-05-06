@@ -125,5 +125,5 @@ export interface RandomUuidArgs {
      * trigger a new uuid to be generated. See
      * the main provider documentation for more information.
      */
-    readonly keepers?: pulumi.Input<{[key: string]: any}>;
+    keepers?: pulumi.Input<{[key: string]: any}>;
 }

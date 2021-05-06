@@ -206,17 +206,17 @@ export interface RandomIdArgs {
      * The number of random bytes to produce. The
      * minimum value is 1, which produces eight bits of randomness.
      */
-    readonly byteLength: pulumi.Input<number>;
+    byteLength: pulumi.Input<number>;
     /**
      * Arbitrary map of values that, when changed, will
      * trigger a new id to be generated. See
      * the main provider documentation for more information.
      */
-    readonly keepers?: pulumi.Input<{[key: string]: any}>;
+    keepers?: pulumi.Input<{[key: string]: any}>;
     /**
      * Arbitrary string to prefix the output value with. This
      * string is supplied as-is, meaning it is not guaranteed to be URL-safe or
      * base64 encoded.
      */
-    readonly prefix?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string>;
 }

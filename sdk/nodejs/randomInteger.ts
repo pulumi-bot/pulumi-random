@@ -177,17 +177,17 @@ export interface RandomIntegerArgs {
      * trigger a new id to be generated. See
      * the main provider documentation for more information.
      */
-    readonly keepers?: pulumi.Input<{[key: string]: any}>;
+    keepers?: pulumi.Input<{[key: string]: any}>;
     /**
      * The maximum inclusive value of the range.
      */
-    readonly max: pulumi.Input<number>;
+    max: pulumi.Input<number>;
     /**
      * The minimum inclusive value of the range.
      */
-    readonly min: pulumi.Input<number>;
+    min: pulumi.Input<number>;
     /**
      * A custom seed to always produce the same value.
      */
-    readonly seed?: pulumi.Input<string>;
+    seed?: pulumi.Input<string>;
 }
