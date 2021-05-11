@@ -127,19 +127,19 @@ export interface RandomPetState {
      * trigger a new id to be generated. See
      * the main provider documentation for more information.
      */
-    readonly keepers?: pulumi.Input<{[key: string]: any}>;
+    keepers?: pulumi.Input<{[key: string]: any}>;
     /**
      * The length (in words) of the pet name.
      */
-    readonly length?: pulumi.Input<number>;
+    length?: pulumi.Input<number>;
     /**
      * A string to prefix the name with.
      */
-    readonly prefix?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string>;
     /**
      * The character to separate words in the pet name.
      */
-    readonly separator?: pulumi.Input<string>;
+    separator?: pulumi.Input<string>;
 }
 
 /**
@@ -151,17 +151,17 @@ export interface RandomPetArgs {
      * trigger a new id to be generated. See
      * the main provider documentation for more information.
      */
-    readonly keepers?: pulumi.Input<{[key: string]: any}>;
+    keepers?: pulumi.Input<{[key: string]: any}>;
     /**
      * The length (in words) of the pet name.
      */
-    readonly length?: pulumi.Input<number>;
+    length?: pulumi.Input<number>;
     /**
      * A string to prefix the name with.
      */
-    readonly prefix?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string>;
     /**
      * The character to separate words in the pet name.
      */
-    readonly separator?: pulumi.Input<string>;
+    separator?: pulumi.Input<string>;
 }
