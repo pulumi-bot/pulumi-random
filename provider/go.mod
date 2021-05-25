@@ -4,8 +4,8 @@ go 1.16
 
 require (
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.1.0
-	github.com/pulumi/pulumi/pkg/v3 v3.0.0
-	github.com/pulumi/pulumi/sdk/v3 v3.0.0
+	github.com/pulumi/pulumi/pkg/v3 v3.3.1
+	github.com/pulumi/pulumi/sdk/v3 v3.3.1
 	github.com/terraform-providers/terraform-provider-random/shim v0.0.0
 )
 
@@ -14,3 +14,5 @@ replace (
 	github.com/terraform-providers/terraform-provider-random => github.com/pulumi/terraform-provider-random v1.3.2-0.20210512110019-3feaba7fd924
 	github.com/terraform-providers/terraform-provider-random/shim => ./shim
 )
+
+replace github.com/pulumi/pulumi-terraform-bridge/v3 => ../../pulumi-terraform-bridge
