@@ -172,7 +172,7 @@ class _RandomShuffleState:
 class RandomShuffle(pulumi.CustomResource):
     @overload
     def __init__(__self__,
-                 resource_name: str,
+                 resource_name_: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  inputs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -200,7 +200,7 @@ class RandomShuffle(pulumi.CustomResource):
         example = aws.elb.LoadBalancer("example", availability_zones=az.results)
         ```
 
-        :param str resource_name: The name of the resource.
+        :param str resource_name_: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inputs: The list of strings to shuffle.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
@@ -210,7 +210,7 @@ class RandomShuffle(pulumi.CustomResource):
         ...
     @overload
     def __init__(__self__,
-                 resource_name: str,
+                 resource_name_: str,
                  args: RandomShuffleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
@@ -234,20 +234,20 @@ class RandomShuffle(pulumi.CustomResource):
         example = aws.elb.LoadBalancer("example", availability_zones=az.results)
         ```
 
-        :param str resource_name: The name of the resource.
+        :param str resource_name_: The name of the resource.
         :param RandomShuffleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
-    def __init__(__self__, resource_name: str, *args, **kwargs):
+    def __init__(__self__, resource_name_: str, *args, **kwargs):
         resource_args, opts = _utilities.get_resource_args_opts(RandomShuffleArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
-            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+            __self__._internal_init(resource_name_, opts, **resource_args.__dict__)
         else:
-            __self__._internal_init(resource_name, *args, **kwargs)
+            __self__._internal_init(resource_name_, *args, **kwargs)
 
     def _internal_init(__self__,
-                 resource_name: str,
+                 resource_name_: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  inputs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -274,12 +274,12 @@ class RandomShuffle(pulumi.CustomResource):
             __props__.__dict__["results"] = None
         super(RandomShuffle, __self__).__init__(
             'random:index/randomShuffle:RandomShuffle',
-            resource_name,
+            resource_name_,
             __props__,
             opts)
 
     @staticmethod
-    def get(resource_name: str,
+    def get(resource_name_: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             inputs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -291,7 +291,7 @@ class RandomShuffle(pulumi.CustomResource):
         Get an existing RandomShuffle resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
-        :param str resource_name: The unique name of the resulting resource.
+        :param str resource_name_: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inputs: The list of strings to shuffle.
@@ -309,7 +309,7 @@ class RandomShuffle(pulumi.CustomResource):
         __props__.__dict__["result_count"] = result_count
         __props__.__dict__["results"] = results
         __props__.__dict__["seed"] = seed
-        return RandomShuffle(resource_name, opts=opts, __props__=__props__)
+        return RandomShuffle(resource_name_, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter

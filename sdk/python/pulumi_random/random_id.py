@@ -188,7 +188,7 @@ class _RandomIdState:
 class RandomId(pulumi.CustomResource):
     @overload
     def __init__(__self__,
-                 resource_name: str,
+                 resource_name_: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  byte_length: Optional[pulumi.Input[int]] = None,
                  keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -244,7 +244,7 @@ class RandomId(pulumi.CustomResource):
          $ pulumi import random:index/randomId:RandomId server my-prefix-,p-9hUg
         ```
 
-        :param str resource_name: The name of the resource.
+        :param str resource_name_: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] byte_length: The number of random bytes to produce. The minimum value is 1, which produces eight bits of randomness.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
@@ -253,7 +253,7 @@ class RandomId(pulumi.CustomResource):
         ...
     @overload
     def __init__(__self__,
-                 resource_name: str,
+                 resource_name_: str,
                  args: RandomIdArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
@@ -306,20 +306,20 @@ class RandomId(pulumi.CustomResource):
          $ pulumi import random:index/randomId:RandomId server my-prefix-,p-9hUg
         ```
 
-        :param str resource_name: The name of the resource.
+        :param str resource_name_: The name of the resource.
         :param RandomIdArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
-    def __init__(__self__, resource_name: str, *args, **kwargs):
+    def __init__(__self__, resource_name_: str, *args, **kwargs):
         resource_args, opts = _utilities.get_resource_args_opts(RandomIdArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
-            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+            __self__._internal_init(resource_name_, opts, **resource_args.__dict__)
         else:
-            __self__._internal_init(resource_name, *args, **kwargs)
+            __self__._internal_init(resource_name_, *args, **kwargs)
 
     def _internal_init(__self__,
-                 resource_name: str,
+                 resource_name_: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  byte_length: Optional[pulumi.Input[int]] = None,
                  keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -347,12 +347,12 @@ class RandomId(pulumi.CustomResource):
             __props__.__dict__["hex"] = None
         super(RandomId, __self__).__init__(
             'random:index/randomId:RandomId',
-            resource_name,
+            resource_name_,
             __props__,
             opts)
 
     @staticmethod
-    def get(resource_name: str,
+    def get(resource_name_: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             b64_std: Optional[pulumi.Input[str]] = None,
@@ -366,7 +366,7 @@ class RandomId(pulumi.CustomResource):
         Get an existing RandomId resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
-        :param str resource_name: The unique name of the resulting resource.
+        :param str resource_name_: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] b64_std: The generated id presented in base64 without additional transformations.
@@ -388,7 +388,7 @@ class RandomId(pulumi.CustomResource):
         __props__.__dict__["hex"] = hex
         __props__.__dict__["keepers"] = keepers
         __props__.__dict__["prefix"] = prefix
-        return RandomId(resource_name, opts=opts, __props__=__props__)
+        return RandomId(resource_name_, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="b64Std")
