@@ -56,13 +56,13 @@ func GetRandomPet(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RandomPet resources.
 type randomPetState struct {
 	// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
-	Keepers map[string]interface{} `pulumi:"keepers"`
+	Keepers pulumi.MapInput `pulumi:"keepers"`
 	// The length (in words) of the pet name.
-	Length *int `pulumi:"length"`
+	Length pulumi.IntPtrInput `pulumi:"length"`
 	// A string to prefix the name with.
-	Prefix *string `pulumi:"prefix"`
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// The character to separate words in the pet name.
-	Separator *string `pulumi:"separator"`
+	Separator pulumi.StringPtrInput `pulumi:"separator"`
 }
 
 type RandomPetState struct {

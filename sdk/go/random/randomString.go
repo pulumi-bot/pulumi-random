@@ -113,29 +113,29 @@ func GetRandomString(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RandomString resources.
 type randomStringState struct {
 	// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
-	Keepers map[string]interface{} `pulumi:"keepers"`
+	Keepers pulumi.MapInput `pulumi:"keepers"`
 	// The length of the string desired.
-	Length *int `pulumi:"length"`
+	Length pulumi.IntPtrInput `pulumi:"length"`
 	// Include lowercase alphabet characters in the result.
-	Lower *bool `pulumi:"lower"`
+	Lower pulumi.BoolPtrInput `pulumi:"lower"`
 	// Minimum number of lowercase alphabet characters in the result.
-	MinLower *int `pulumi:"minLower"`
+	MinLower pulumi.IntPtrInput `pulumi:"minLower"`
 	// Minimum number of numeric characters in the result.
-	MinNumeric *int `pulumi:"minNumeric"`
+	MinNumeric pulumi.IntPtrInput `pulumi:"minNumeric"`
 	// Minimum number of special characters in the result.
-	MinSpecial *int `pulumi:"minSpecial"`
+	MinSpecial pulumi.IntPtrInput `pulumi:"minSpecial"`
 	// Minimum number of uppercase alphabet characters in the result.
-	MinUpper *int `pulumi:"minUpper"`
+	MinUpper pulumi.IntPtrInput `pulumi:"minUpper"`
 	// Include numeric characters in the result.
-	Number *bool `pulumi:"number"`
+	Number pulumi.BoolPtrInput `pulumi:"number"`
 	// Supply your own list of special characters to use for string generation.  This overrides the default character list in the special argument.  The `special` argument must still be set to true for any overwritten characters to be used in generation.
-	OverrideSpecial *string `pulumi:"overrideSpecial"`
+	OverrideSpecial pulumi.StringPtrInput `pulumi:"overrideSpecial"`
 	// The generated random string.
-	Result *string `pulumi:"result"`
+	Result pulumi.StringPtrInput `pulumi:"result"`
 	// Include special characters in the result. These are `!@#$%&*()-_=+[]{}<>:?`
-	Special *bool `pulumi:"special"`
+	Special pulumi.BoolPtrInput `pulumi:"special"`
 	// Include uppercase alphabet characters in the result.
-	Upper *bool `pulumi:"upper"`
+	Upper pulumi.BoolPtrInput `pulumi:"upper"`
 }
 
 type RandomStringState struct {

@@ -88,9 +88,9 @@ func GetRandomUuid(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RandomUuid resources.
 type randomUuidState struct {
 	// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
-	Keepers map[string]interface{} `pulumi:"keepers"`
+	Keepers pulumi.MapInput `pulumi:"keepers"`
 	// The generated uuid presented in string format.
-	Result *string `pulumi:"result"`
+	Result pulumi.StringPtrInput `pulumi:"result"`
 }
 
 type RandomUuidState struct {

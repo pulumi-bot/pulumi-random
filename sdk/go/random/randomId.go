@@ -89,19 +89,19 @@ func GetRandomId(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RandomId resources.
 type randomIdState struct {
 	// The generated id presented in base64 without additional transformations.
-	B64Std *string `pulumi:"b64Std"`
+	B64Std pulumi.StringPtrInput `pulumi:"b64Std"`
 	// The generated id presented in base64, using the URL-friendly character set: case-sensitive letters, digits and the characters `_` and `-`.
-	B64Url *string `pulumi:"b64Url"`
+	B64Url pulumi.StringPtrInput `pulumi:"b64Url"`
 	// The number of random bytes to produce. The minimum value is 1, which produces eight bits of randomness.
-	ByteLength *int `pulumi:"byteLength"`
+	ByteLength pulumi.IntPtrInput `pulumi:"byteLength"`
 	// The generated id presented in non-padded decimal digits.
-	Dec *string `pulumi:"dec"`
+	Dec pulumi.StringPtrInput `pulumi:"dec"`
 	// The generated id presented in padded hexadecimal digits. This result will always be twice as long as the requested byte length.
-	Hex *string `pulumi:"hex"`
+	Hex pulumi.StringPtrInput `pulumi:"hex"`
 	// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
-	Keepers map[string]interface{} `pulumi:"keepers"`
+	Keepers pulumi.MapInput `pulumi:"keepers"`
 	// Arbitrary string to prefix the output value with. This string is supplied as-is, meaning it is not guaranteed to be URL-safe or base64 encoded.
-	Prefix *string `pulumi:"prefix"`
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
 type RandomIdState struct {

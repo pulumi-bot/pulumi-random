@@ -12,42 +12,6 @@ import (
 )
 
 // The resource `RandomShuffle` generates a random permutation of a list of strings given as an argument.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/elb"
-// 	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		az, err := random.NewRandomShuffle(ctx, "az", &random.RandomShuffleArgs{
-// 			Inputs: pulumi.StringArray{
-// 				pulumi.String("us-west-1a"),
-// 				pulumi.String("us-west-1c"),
-// 				pulumi.String("us-west-1d"),
-// 				pulumi.String("us-west-1e"),
-// 			},
-// 			ResultCount: pulumi.Int(2),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = elb.NewLoadBalancer(ctx, "example", &elb.LoadBalancerArgs{
-// 			AvailabilityZones: az.Results,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type RandomShuffle struct {
 	pulumi.CustomResourceState
 
@@ -96,15 +60,15 @@ func GetRandomShuffle(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RandomShuffle resources.
 type randomShuffleState struct {
 	// The list of strings to shuffle.
-	Inputs []string `pulumi:"inputs"`
+	Inputs pulumi.StringArrayInput `pulumi:"inputs"`
 	// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
-	Keepers map[string]interface{} `pulumi:"keepers"`
+	Keepers pulumi.MapInput `pulumi:"keepers"`
 	// The number of results to return. Defaults to the number of items in the `input` list. If fewer items are requested, some elements will be excluded from the result. If more items are requested, items will be repeated in the result but not more frequently than the number of items in the input list.
-	ResultCount *int `pulumi:"resultCount"`
+	ResultCount pulumi.IntPtrInput `pulumi:"resultCount"`
 	// Random permutation of the list of strings given in `input`.
-	Results []string `pulumi:"results"`
+	Results pulumi.StringArrayInput `pulumi:"results"`
 	// Arbitrary string with which to seed the random number generator, in order to produce less-volatile permutations of the list.
-	Seed *string `pulumi:"seed"`
+	Seed pulumi.StringPtrInput `pulumi:"seed"`
 }
 
 type RandomShuffleState struct {
