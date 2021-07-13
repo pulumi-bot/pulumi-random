@@ -647,8 +647,6 @@ github.com/prometheus/procfs v0.0.0-20190507164030-5867b95ac084/go.mod h1:TjEm7z
 github.com/prometheus/procfs v0.0.2/go.mod h1:TjEm7ze935MbeOT/UhFTIMYKhuLP4wbCsTZCD3I8kEA=
 github.com/prometheus/procfs v0.0.8/go.mod h1:7Qr8sr6344vo1JqZ6HhLceV9o3AJ1Ff+GxbHq6oeK9A=
 github.com/prometheus/tsdb v0.7.1/go.mod h1:qhTCs0VvXwvX/y3TZrWD7rabWM+ijKTux40TwIPHuXU=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.3.1-0.20210701143343-d14d476d7792 h1:yXn6OuS3ry7xpUqjGkP7mxqFliSWUXxs0oXGXepwnVA=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.3.1-0.20210701143343-d14d476d7792/go.mod h1:yw76q8lSKVw+MSykg2sFhXva7U0l4VpFRcH4PiT2koU=
 github.com/pulumi/pulumi/pkg/v3 v3.6.0 h1:rX7F647DwrFHopofwJ4J1tL4RKH9Q8vjK6R18lJFOFs=
 github.com/pulumi/pulumi/pkg/v3 v3.6.0/go.mod h1:VgIJMIZxVwKg7qVz0smW2UuzOasgfh2997L9etiqkOw=
 github.com/pulumi/pulumi/sdk/v3 v3.3.1/go.mod h1:GBHyQ7awNQSRmiKp/p8kIKrGrMOZeA/k2czoM/GOqds=

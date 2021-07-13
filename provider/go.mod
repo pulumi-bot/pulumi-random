@@ -13,3 +13,5 @@ replace (
 	github.com/terraform-providers/terraform-provider-random => github.com/pulumi/terraform-provider-random v1.3.2-0.20210512110019-3feaba7fd924
 	github.com/terraform-providers/terraform-provider-random/shim => ./shim
 )
+
+replace github.com/pulumi/pulumi-terraform-bridge/v3 => ../../pulumi-terraform-bridge
