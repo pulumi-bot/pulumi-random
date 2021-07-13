@@ -15,6 +15,7 @@ class RandomUuidArgs:
     def __init__(__self__, *,
                  keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
+        # BUILT BY genInitDocstring()
         The set of arguments for constructing a RandomUuid resource.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         """
@@ -40,6 +41,7 @@ class _RandomUuidState:
                  keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  result: Optional[pulumi.Input[str]] = None):
         """
+        # BUILT BY genInitDocstring()
         Input properties used for looking up and filtering RandomUuid resources.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         :param pulumi.Input[str] result: The generated uuid presented in string format.
@@ -75,12 +77,6 @@ class _RandomUuidState:
 
 
 class RandomUuid(pulumi.CustomResource):
-    @overload
-    def __init__(__self__,
-                 resource_name: str,
-                 opts: Optional[pulumi.ResourceOptions] = None,
-                 keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 __props__=None):
         """
         The resource `RandomUuid` generates random uuid string that is intended to be used as unique identifiers for other resources.
 
@@ -104,7 +100,14 @@ class RandomUuid(pulumi.CustomResource):
         ```sh
          $ pulumi import random:index/randomUuid:RandomUuid main aabbccdd-eeff-0011-2233-445566778899
         ```
-
+        """
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 __props__=None):
+        """
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
@@ -116,29 +119,6 @@ class RandomUuid(pulumi.CustomResource):
                  args: Optional[RandomUuidArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The resource `RandomUuid` generates random uuid string that is intended to be used as unique identifiers for other resources.
-
-        This resource uses [hashicorp/go-uuid](https://github.com/hashicorp/go-uuid) to generate a UUID-formatted string for use with services needed a unique string identifier.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        test_random_uuid = random.RandomUuid("testRandomUuid")
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="Central US")
-        ```
-
-        ## Import
-
-        # Random UUID's can be imported. This can be used to replace a config # value with a value interpolated from the random provider without # experiencing diffs.
-
-        ```sh
-         $ pulumi import random:index/randomUuid:RandomUuid main aabbccdd-eeff-0011-2233-445566778899
-        ```
-
         :param str resource_name: The name of the resource.
         :param RandomUuidArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

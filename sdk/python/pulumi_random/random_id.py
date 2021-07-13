@@ -17,6 +17,7 @@ class RandomIdArgs:
                  keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
         """
+        # BUILT BY genInitDocstring()
         The set of arguments for constructing a RandomId resource.
         :param pulumi.Input[int] byte_length: The number of random bytes to produce. The minimum value is 1, which produces eight bits of randomness.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
@@ -76,6 +77,7 @@ class _RandomIdState:
                  keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
         """
+        # BUILT BY genInitDocstring()
         Input properties used for looking up and filtering RandomId resources.
         :param pulumi.Input[str] b64_std: The generated id presented in base64 without additional transformations.
         :param pulumi.Input[str] b64_url: The generated id presented in base64, using the URL-friendly character set: case-sensitive letters, digits and the characters `_` and `-`.
@@ -186,14 +188,6 @@ class _RandomIdState:
 
 
 class RandomId(pulumi.CustomResource):
-    @overload
-    def __init__(__self__,
-                 resource_name: str,
-                 opts: Optional[pulumi.ResourceOptions] = None,
-                 byte_length: Optional[pulumi.Input[int]] = None,
-                 keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 prefix: Optional[pulumi.Input[str]] = None,
-                 __props__=None):
         """
         The resource `RandomId` generates random numbers that are intended to be
         used as unique identifiers for other resources.
@@ -243,7 +237,16 @@ class RandomId(pulumi.CustomResource):
         ```sh
          $ pulumi import random:index/randomId:RandomId server my-prefix-,p-9hUg
         ```
-
+        """
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 byte_length: Optional[pulumi.Input[int]] = None,
+                 keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 prefix: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
+        """
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] byte_length: The number of random bytes to produce. The minimum value is 1, which produces eight bits of randomness.
@@ -257,55 +260,6 @@ class RandomId(pulumi.CustomResource):
                  args: RandomIdArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The resource `RandomId` generates random numbers that are intended to be
-        used as unique identifiers for other resources.
-
-        This resource *does* use a cryptographic random number generator in order
-        to minimize the chance of collisions, making the results of this resource
-        when a 16-byte identifier is requested of equivalent uniqueness to a
-        type-4 UUID.
-
-        This resource can be used in conjunction with resources that have
-        the `create_before_destroy` lifecycle flag set to avoid conflicts with
-        unique names during the brief period where both the old and new resources
-        exist concurrently.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_random as random
-
-        # The following example shows how to generate a unique name for an AWS EC2
-        # instance that changes each time a new AMI id is selected.
-        server_random_id = random.RandomId("serverRandomId",
-            keepers={
-                "ami_id": var["ami_id"],
-            },
-            byte_length=8)
-        server_instance = aws.ec2.Instance("serverInstance",
-            tags={
-                "Name": server_random_id.hex.apply(lambda hex: f"web-server {hex}"),
-            },
-            ami=server_random_id.keepers["amiId"])
-        # ... (other aws_instance arguments) ...
-        ```
-
-        ## Import
-
-        # Random IDs can be imported using the b64_url with an optional prefix. This # can be used to replace a config value with a value interpolated from the # random provider without experiencing diffs. # Example with no prefix
-
-        ```sh
-         $ pulumi import random:index/randomId:RandomId server p-9hUg
-        ```
-
-        # Example with prefix (prefix is separated by a ,)
-
-        ```sh
-         $ pulumi import random:index/randomId:RandomId server my-prefix-,p-9hUg
-        ```
-
         :param str resource_name: The name of the resource.
         :param RandomIdArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

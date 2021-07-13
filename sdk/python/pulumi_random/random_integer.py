@@ -18,6 +18,7 @@ class RandomIntegerArgs:
                  keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  seed: Optional[pulumi.Input[str]] = None):
         """
+        # BUILT BY genInitDocstring()
         The set of arguments for constructing a RandomInteger resource.
         :param pulumi.Input[int] max: The maximum inclusive value of the range.
         :param pulumi.Input[int] min: The minimum inclusive value of the range.
@@ -89,6 +90,7 @@ class _RandomIntegerState:
                  result: Optional[pulumi.Input[int]] = None,
                  seed: Optional[pulumi.Input[str]] = None):
         """
+        # BUILT BY genInitDocstring()
         Input properties used for looking up and filtering RandomInteger resources.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         :param pulumi.Input[int] max: The maximum inclusive value of the range.
@@ -169,15 +171,6 @@ class _RandomIntegerState:
 
 
 class RandomInteger(pulumi.CustomResource):
-    @overload
-    def __init__(__self__,
-                 resource_name: str,
-                 opts: Optional[pulumi.ResourceOptions] = None,
-                 keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 max: Optional[pulumi.Input[int]] = None,
-                 min: Optional[pulumi.Input[int]] = None,
-                 seed: Optional[pulumi.Input[str]] = None,
-                 __props__=None):
         """
         The resource `RandomInteger` generates random values from a given range, described by the `min` and `max` attributes of a given resource.
 
@@ -215,7 +208,17 @@ class RandomInteger(pulumi.CustomResource):
         ```sh
          $ pulumi import random:index/randomInteger:RandomInteger priority 15390,1,50000
         ```
-
+        """
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 max: Optional[pulumi.Input[int]] = None,
+                 min: Optional[pulumi.Input[int]] = None,
+                 seed: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
+        """
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
@@ -230,43 +233,6 @@ class RandomInteger(pulumi.CustomResource):
                  args: RandomIntegerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The resource `RandomInteger` generates random values from a given range, described by the `min` and `max` attributes of a given resource.
-
-        This resource can be used in conjunction with resources that have the `create_before_destroy` lifecycle flag set, to avoid conflicts with unique names during the brief period where both the old and new resources exist concurrently.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_random as random
-
-        # The following example shows how to generate a random priority
-        # between 1 and 50000 for a aws_alb_listener_rule resource:
-        priority = random.RandomInteger("priority",
-            min=1,
-            max=50000,
-            keepers={
-                "listener_arn": var["listener_arn"],
-            })
-        main = aws.alb.ListenerRule("main",
-            listener_arn=var["listener_arn"],
-            priority=priority.result,
-            actions=[aws.alb.ListenerRuleActionArgs(
-                type="forward",
-                target_group_arn=var["target_group_arn"],
-            )])
-        # ... (other aws_alb_listener_rule arguments) ...
-        ```
-
-        ## Import
-
-        # Random integers can be imported using the result, min, and max, with an # optional seed. This can be used to replace a config value with a value # interpolated from the random provider without experiencing diffs. # Example (values are separated by a ,)
-
-        ```sh
-         $ pulumi import random:index/randomInteger:RandomInteger priority 15390,1,50000
-        ```
-
         :param str resource_name: The name of the resource.
         :param RandomIntegerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

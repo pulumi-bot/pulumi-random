@@ -18,6 +18,7 @@ class RandomShuffleArgs:
                  result_count: Optional[pulumi.Input[int]] = None,
                  seed: Optional[pulumi.Input[str]] = None):
         """
+        # BUILT BY genInitDocstring()
         The set of arguments for constructing a RandomShuffle resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inputs: The list of strings to shuffle.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
@@ -90,6 +91,7 @@ class _RandomShuffleState:
                  results: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  seed: Optional[pulumi.Input[str]] = None):
         """
+        # BUILT BY genInitDocstring()
         Input properties used for looking up and filtering RandomShuffle resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inputs: The list of strings to shuffle.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
@@ -170,15 +172,6 @@ class _RandomShuffleState:
 
 
 class RandomShuffle(pulumi.CustomResource):
-    @overload
-    def __init__(__self__,
-                 resource_name: str,
-                 opts: Optional[pulumi.ResourceOptions] = None,
-                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 result_count: Optional[pulumi.Input[int]] = None,
-                 seed: Optional[pulumi.Input[str]] = None,
-                 __props__=None):
         """
         The resource `RandomShuffle` generates a random permutation of a list of strings given as an argument.
 
@@ -199,7 +192,17 @@ class RandomShuffle(pulumi.CustomResource):
             result_count=2)
         example = aws.elb.LoadBalancer("example", availability_zones=az.results)
         ```
-
+        """
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 result_count: Optional[pulumi.Input[int]] = None,
+                 seed: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
+        """
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inputs: The list of strings to shuffle.
@@ -214,26 +217,6 @@ class RandomShuffle(pulumi.CustomResource):
                  args: RandomShuffleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The resource `RandomShuffle` generates a random permutation of a list of strings given as an argument.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_random as random
-
-        az = random.RandomShuffle("az",
-            inputs=[
-                "us-west-1a",
-                "us-west-1c",
-                "us-west-1d",
-                "us-west-1e",
-            ],
-            result_count=2)
-        example = aws.elb.LoadBalancer("example", availability_zones=az.results)
-        ```
-
         :param str resource_name: The name of the resource.
         :param RandomShuffleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
