@@ -394,22 +394,6 @@ class _RandomStringState:
 
 
 class RandomString(pulumi.CustomResource):
-    @overload
-    def __init__(__self__,
-                 resource_name: str,
-                 opts: Optional[pulumi.ResourceOptions] = None,
-                 keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 length: Optional[pulumi.Input[int]] = None,
-                 lower: Optional[pulumi.Input[bool]] = None,
-                 min_lower: Optional[pulumi.Input[int]] = None,
-                 min_numeric: Optional[pulumi.Input[int]] = None,
-                 min_special: Optional[pulumi.Input[int]] = None,
-                 min_upper: Optional[pulumi.Input[int]] = None,
-                 number: Optional[pulumi.Input[bool]] = None,
-                 override_special: Optional[pulumi.Input[str]] = None,
-                 special: Optional[pulumi.Input[bool]] = None,
-                 upper: Optional[pulumi.Input[bool]] = None,
-                 __props__=None):
         """
         The resource `RandomString` generates a random permutation of alphanumeric characters and optionally special characters.
 
@@ -436,7 +420,24 @@ class RandomString(pulumi.CustomResource):
         ```sh
          $ pulumi import random:index/randomString:RandomString test test
         ```
-
+        """
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 length: Optional[pulumi.Input[int]] = None,
+                 lower: Optional[pulumi.Input[bool]] = None,
+                 min_lower: Optional[pulumi.Input[int]] = None,
+                 min_numeric: Optional[pulumi.Input[int]] = None,
+                 min_special: Optional[pulumi.Input[int]] = None,
+                 min_upper: Optional[pulumi.Input[int]] = None,
+                 number: Optional[pulumi.Input[bool]] = None,
+                 override_special: Optional[pulumi.Input[str]] = None,
+                 special: Optional[pulumi.Input[bool]] = None,
+                 upper: Optional[pulumi.Input[bool]] = None,
+                 __props__=None):
+        """
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
@@ -458,32 +459,6 @@ class RandomString(pulumi.CustomResource):
                  args: RandomStringArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The resource `RandomString` generates a random permutation of alphanumeric characters and optionally special characters.
-
-        This resource *does* use a cryptographic random number generator.
-
-        Historically this resource's intended usage has been ambiguous as the original example used it in a password. For backwards compatibility it will continue to exist. For unique ids please use random_id, for sensitive random values please use random_password.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_random as random
-
-        random = random.RandomString("random",
-            length=16,
-            override_special="/@£$",
-            special=True)
-        ```
-
-        ## Import
-
-        # Strings can be imported by just specifying the value of the string
-
-        ```sh
-         $ pulumi import random:index/randomString:RandomString test test
-        ```
-
         :param str resource_name: The name of the resource.
         :param RandomStringArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

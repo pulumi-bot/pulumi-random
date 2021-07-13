@@ -394,22 +394,6 @@ class _RandomPasswordState:
 
 
 class RandomPassword(pulumi.CustomResource):
-    @overload
-    def __init__(__self__,
-                 resource_name: str,
-                 opts: Optional[pulumi.ResourceOptions] = None,
-                 keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 length: Optional[pulumi.Input[int]] = None,
-                 lower: Optional[pulumi.Input[bool]] = None,
-                 min_lower: Optional[pulumi.Input[int]] = None,
-                 min_numeric: Optional[pulumi.Input[int]] = None,
-                 min_special: Optional[pulumi.Input[int]] = None,
-                 min_upper: Optional[pulumi.Input[int]] = None,
-                 number: Optional[pulumi.Input[bool]] = None,
-                 override_special: Optional[pulumi.Input[str]] = None,
-                 special: Optional[pulumi.Input[bool]] = None,
-                 upper: Optional[pulumi.Input[bool]] = None,
-                 __props__=None):
         """
         Identical to RandomString with the exception that the result is treated as sensitive and, thus, _not_ displayed in console output.
 
@@ -441,7 +425,24 @@ class RandomPassword(pulumi.CustomResource):
         ```sh
          $ pulumi import random:index/randomPassword:RandomPassword password securepassword
         ```
-
+        """
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 keepers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 length: Optional[pulumi.Input[int]] = None,
+                 lower: Optional[pulumi.Input[bool]] = None,
+                 min_lower: Optional[pulumi.Input[int]] = None,
+                 min_numeric: Optional[pulumi.Input[int]] = None,
+                 min_special: Optional[pulumi.Input[int]] = None,
+                 min_upper: Optional[pulumi.Input[int]] = None,
+                 number: Optional[pulumi.Input[bool]] = None,
+                 override_special: Optional[pulumi.Input[str]] = None,
+                 special: Optional[pulumi.Input[bool]] = None,
+                 upper: Optional[pulumi.Input[bool]] = None,
+                 __props__=None):
+        """
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, Any]] keepers: Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
@@ -463,37 +464,6 @@ class RandomPassword(pulumi.CustomResource):
                  args: RandomPasswordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Identical to RandomString with the exception that the result is treated as sensitive and, thus, _not_ displayed in console output.
-
-        This resource *does* use a cryptographic random number generator.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_random as random
-
-        password = random.RandomPassword("password",
-            length=16,
-            special=True,
-            override_special="_%@")
-        example = aws.rds.Instance("example",
-            instance_class="db.t3.micro",
-            allocated_storage=64,
-            engine="mysql",
-            username="someone",
-            password=password.result)
-        ```
-
-        ## Import
-
-        # Random Password can be imported by specifying the value of the string
-
-        ```sh
-         $ pulumi import random:index/randomPassword:RandomPassword password securepassword
-        ```
-
         :param str resource_name: The name of the resource.
         :param RandomPasswordArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
